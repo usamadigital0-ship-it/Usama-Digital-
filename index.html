@@ -2,1202 +2,304 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Usama Digital | Premium Digital Marketing Agency in Pakistan</title>
-  <meta name="description" content="Usama Digital – A to Z Digital Marketing Solutions. Proven growth for Pakistani businesses. 999+ Leads Generated." />
-  <meta name="keywords" content="digital marketing Pakistan, social media marketing, SEO, Facebook Ads, Shopify, WordPress, Usama Digital" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            bg: '#0a0a0a',
-            surface: '#111111',
-            border: '#1e1e1e',
-            cyan: { DEFAULT: '#22d3ee', dark: '#0891b2', light: '#67e8f9' },
-            purple: { DEFAULT: '#a855f7', dark: '#7c3aed', light: '#c084fc' },
-          },
-          fontFamily: {
-            display: ['Syne', 'sans-serif'],
-            body: ['DM Sans', 'sans-serif'],
-          },
-        }
-      }
-    }
-  </script>
+
   <style>
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { background: #0a0a0a; color: #e5e5e5; font-family: 'DM Sans', sans-serif; }
-
-    /* Scrollbar */
-    ::-webkit-scrollbar { width: 4px; }
-    ::-webkit-scrollbar-track { background: #0a0a0a; }
-    ::-webkit-scrollbar-thumb { background: #22d3ee44; border-radius: 4px; }
-
-    /* ─── Animations ─── */
-    @keyframes fadeUp { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
-    @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-    @keyframes pulse-glow { 0%,100% { box-shadow:0 0 0 0 #22d3ee44; } 50% { box-shadow:0 0 0 12px #22d3ee00; } }
-    @keyframes float { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-8px); } }
-    @keyframes shimmer { 0% { background-position:-200% center; } 100% { background-position:200% center; } }
-    @keyframes spin-slow { from { transform:rotate(0deg); } to { transform:rotate(360deg); } }
-    @keyframes ticker-pulse { 0%,100% { opacity:1; } 50% { opacity:.5; } }
-    @keyframes particle-rise { 0% { opacity:1; transform:translateY(0) scale(1); } 100% { opacity:0; transform:translateY(-120px) scale(.3); } }
-    @keyframes neon-border { 0%,100% { border-color:#22d3ee44; } 50% { border-color:#22d3ee99; } }
-    @keyframes slide-in-right { from { transform:translateX(100%); opacity:0; } to { transform:translateX(0); opacity:1; } }
-    @keyframes counter-pop { 0% { transform:scale(.8); opacity:0; } 60% { transform:scale(1.1); } 100% { transform:scale(1); opacity:1; } }
-
-    .animate-fade-up { animation: fadeUp .7s ease forwards; }
-    .animate-float { animation: float 4s ease-in-out infinite; }
-    .animate-pulse-glow { animation: pulse-glow 2s infinite; }
-    .animate-spin-slow { animation: spin-slow 12s linear infinite; }
-    .animate-neon-border { animation: neon-border 3s ease-in-out infinite; }
-
-    .shimmer-text {
-      background: linear-gradient(90deg, #22d3ee 0%, #a855f7 40%, #22d3ee 80%);
-      background-size: 200% auto;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: shimmer 3s linear infinite;
+    body { background:#0a0a0a; color:white; }
+    .glass { background: rgba(10,10,10,0.6); backdrop-filter: blur(12px); }
+    .marquee {
+      display: flex;
+      width: max-content;
+      animation: scroll 18s linear infinite;
     }
-
-    /* Glassmorphism */
-    .glass {
-      background: rgba(17,17,17,0.75);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(34,211,238,.12);
+    @keyframes scroll {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
     }
-
-    /* Card hover */
-    .service-card {
-      transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
-      border: 1px solid #1e1e1e;
+    .glow {
+      animation: glow 1s ease-in-out;
     }
-    .service-card:hover {
-      transform: translateY(-6px);
-      border-color: #22d3ee44;
-      box-shadow: 0 20px 60px rgba(34,211,238,.1);
+    @keyframes glow {
+      0% { box-shadow: 0 0 0px #22d3ee; }
+      50% { box-shadow: 0 0 25px #22d3ee; }
+      100% { box-shadow: 0 0 0px #22d3ee; }
     }
-
-    /* Pricing card */
-    .pricing-card { transition: transform .35s ease, box-shadow .35s ease; }
-    .pricing-card:hover { transform: translateY(-8px); box-shadow: 0 32px 80px rgba(34,211,238,.12); }
-    .pricing-popular {
-      border: 1px solid #22d3ee66 !important;
-      box-shadow: 0 0 40px rgba(34,211,238,.12);
+    .fade-nav {
+      transition: transform 0.4s ease;
     }
-
-    /* Testimonial */
-    .testimonial-card { transition: transform .3s ease; }
-    .testimonial-card:hover { transform: translateY(-4px); }
-
-    /* Overlay menu */
-    #mobile-overlay { transition: opacity .3s ease, visibility .3s ease; }
-    #mobile-overlay.hidden-menu { opacity:0; visibility:hidden; }
-    #mobile-overlay.open-menu { opacity:1; visibility:visible; }
-
-    /* WhatsApp */
-    .wa-btn { animation: pulse-glow 2.5s infinite; }
-
-    /* Countdown */
-    .countdown-digit {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      letter-spacing: .05em;
-    }
-
-    /* Video overlay gradient */
-    .hero-overlay {
-      background: linear-gradient(135deg, rgba(10,10,10,.92) 0%, rgba(10,10,10,.7) 60%, rgba(34,211,238,.05) 100%);
-    }
-
-    /* Glow text */
-    .glow-cyan { text-shadow: 0 0 30px rgba(34,211,238,.5), 0 0 60px rgba(34,211,238,.2); }
-    .glow-purple { text-shadow: 0 0 30px rgba(168,85,247,.5); }
-
-    /* Noise texture overlay */
-    .noise::after {
-      content:'';
-      position:absolute;
-      inset:0;
-      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-      pointer-events:none;
-      z-index:1;
-    }
-
-    /* Section divider */
-    .section-divider {
-      height: 1px;
-      background: linear-gradient(90deg, transparent, #22d3ee22, transparent);
-    }
-
-    /* Focus states */
-    a:focus-visible, button:focus-visible { outline: 2px solid #22d3ee; outline-offset: 3px; border-radius: 4px; }
-
-    /* Form */
-    .form-input {
-      background: #111;
-      border: 1px solid #1e1e1e;
-      color: #e5e5e5;
-      transition: border-color .25s ease, box-shadow .25s ease;
-    }
-    .form-input:focus {
-      outline: none;
-      border-color: #22d3ee55;
-      box-shadow: 0 0 0 3px rgba(34,211,238,.08);
-    }
-
-    /* Counter number */
-    .counter-num { font-family: 'Syne', sans-serif; }
-
-    /* Carousel */
-    .testimonial-track { transition: transform .5s cubic-bezier(.4,0,.2,1); }
-
-    /* Mobile menu link */
-    .mobile-link { border-bottom: 1px solid #1a1a1a; transition: color .2s, padding-left .2s; }
-    .mobile-link:hover { color: #22d3ee; padding-left: 8px; }
-
-    /* Particles */
-    .particle {
-      position: absolute;
-      border-radius: 50%;
-      pointer-events: none;
-      animation: particle-rise 2s ease forwards;
-    }
-
-    /* Success toast */
-    .toast { animation: slide-in-right .4s ease forwards; }
-
-    /* Offer bar */
-    #offer-bar { transition: max-height .4s ease, opacity .4s ease; }
-
-    /* CTA buttons */
-    .btn-primary {
-      background: linear-gradient(135deg, #22d3ee, #0891b2);
-      color: #0a0a0a;
-      font-weight: 700;
-      transition: transform .2s ease, box-shadow .2s ease, opacity .2s;
-    }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(34,211,238,.35); opacity:.95; }
-    .btn-primary:active { transform: translateY(0); }
-
-    .btn-outline {
-      border: 1px solid #22d3ee44;
-      color: #22d3ee;
-      transition: background .2s, border-color .2s, transform .2s;
-    }
-    .btn-outline:hover { background: rgba(34,211,238,.08); border-color: #22d3ee88; transform: translateY(-2px); }
-
-    /* Grid lines bg */
-    .grid-bg {
-      background-image: linear-gradient(rgba(34,211,238,.03) 1px, transparent 1px),
-                        linear-gradient(90deg, rgba(34,211,238,.03) 1px, transparent 1px);
-      background-size: 60px 60px;
-    }
-
-    /* Scroll reveal */
-    .reveal { opacity:0; transform:translateY(24px); transition: opacity .6s ease, transform .6s ease; }
-    .reveal.visible { opacity:1; transform:translateY(0); }
-
-    /* Highlight badge */
-    .badge-popular {
-      background: linear-gradient(135deg, #22d3ee, #0891b2);
-      color: #0a0a0a;
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: .65rem;
-      letter-spacing: .1em;
-    }
-
-    /* Custom clip */
-    .clip-bottom { clip-path: polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 90%); }
   </style>
 </head>
-<body class="antialiased">
 
-<!-- ══════════════════════════════════════════
-     OFFER BAR
-══════════════════════════════════════════ -->
-<div id="offer-bar" role="banner" aria-label="Limited time offer" class="relative z-50 bg-bg border-b border-cyan/20 py-2 px-4 text-center text-sm font-body overflow-hidden">
-  <div class="absolute inset-0 bg-gradient-to-r from-transparent via-cyan/5 to-transparent pointer-events-none"></div>
-  <div class="flex items-center justify-center gap-3 flex-wrap">
-    <span class="text-cyan font-display font-bold text-xs tracking-widest uppercase">🎯 10% OFF Limited Time Offer – Ends in</span>
-    <span id="countdown" class="countdown-digit text-white bg-white/5 px-3 py-1 rounded text-sm border border-cyan/20" aria-live="polite" aria-label="Countdown timer">24:00:00</span>
-    <span id="offer-restarted" class="hidden text-xs text-cyan/80 italic">✓ Offer Restarted!</span>
+<body class="font-sans">
+
+<!-- OFFER BAR -->
+<div class="fixed top-0 left-0 w-full z-50 bg-black border-b border-cyan-500 overflow-hidden">
+  <div class="marquee text-sm py-2 px-4 text-cyan-300 font-semibold whitespace-nowrap">
+    🎯 10% OFF Limited Time Offer – Ends in <span id="timer" class="ml-2 font-bold text-white"></span>
   </div>
-  <button id="close-offer" aria-label="Close offer bar" class="absolute right-4 top-1/2 -translate-y-1/2 text-white/50 hover:text-white transition-colors text-lg leading-none">×</button>
 </div>
 
-<!-- ══════════════════════════════════════════
-     NAVIGATION
-══════════════════════════════════════════ -->
-<nav id="navbar" role="navigation" aria-label="Main navigation" class="fixed left-0 right-0 z-40 glass transition-all duration-300" style="top:37px;">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-16">
-      <!-- Brand -->
-      <a href="#hero" class="flex items-center gap-3 group" aria-label="Usama Digital Home">
-        <div class="w-9 h-9 rounded-lg overflow-hidden border border-cyan/20 flex-shrink-0">
-          <img src="logo.png" alt="Usama Digital Logo" class="w-full h-full object-contain bg-black/50 p-1" onerror="this.parentElement.innerHTML='<div class=\'w-full h-full flex items-center justify-center bg-cyan/10 text-cyan font-display font-black text-sm\'>UD</div>'" />
-        </div>
-        <span class="font-display font-bold text-lg text-white group-hover:text-cyan transition-colors">Usama <span class="text-cyan">Digital</span></span>
-      </a>
-
-      <!-- Desktop nav -->
-      <ul class="hidden lg:flex items-center gap-1" role="list">
-        <li><a href="#hero" class="px-4 py-2 text-sm text-white/70 hover:text-cyan rounded-lg hover:bg-cyan/5 transition-all font-body">Home</a></li>
-        <li><a href="#services" class="px-4 py-2 text-sm text-white/70 hover:text-cyan rounded-lg hover:bg-cyan/5 transition-all font-body">Services</a></li>
-        <li><a href="#pricing" class="px-4 py-2 text-sm text-white/70 hover:text-cyan rounded-lg hover:bg-cyan/5 transition-all font-body">Pricing</a></li>
-        <li><a href="#results" class="px-4 py-2 text-sm text-white/70 hover:text-cyan rounded-lg hover:bg-cyan/5 transition-all font-body">Results</a></li>
-        <li><a href="#testimonials" class="px-4 py-2 text-sm text-white/70 hover:text-cyan rounded-lg hover:bg-cyan/5 transition-all font-body">Testimonials</a></li>
-        <li><a href="#contact" class="px-4 py-2 text-sm text-white/70 hover:text-cyan rounded-lg hover:bg-cyan/5 transition-all font-body">Contact</a></li>
-        <li class="ml-2">
-          <a href="https://wa.me/923030607545?text=Hi%20Usama%20Digital%2C%20I%27m%20interested%20in%20your%20services." target="_blank" rel="noopener noreferrer" class="btn-primary px-5 py-2 rounded-lg text-sm flex items-center gap-2">
-            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.005 0C5.374 0 0 5.373 0 11.997c0 2.117.554 4.103 1.523 5.826L.057 24l6.305-1.654A11.954 11.954 0 0012.005 24C18.628 24 24 18.626 24 12.001 24 5.375 18.628 0 12.005 0zm0 21.818a9.816 9.816 0 01-5.001-1.371l-.36-.214-3.721.976.994-3.624-.235-.373a9.788 9.788 0 01-1.499-5.212c0-5.404 4.399-9.8 9.822-9.8 5.421 0 9.82 4.396 9.82 9.8 0 5.406-4.399 9.818-9.82 9.818z"/></svg>
-            Get Started
-          </a>
-        </li>
-      </ul>
-
-      <!-- Hamburger -->
-      <button id="hamburger" class="lg:hidden p-2 rounded-lg text-white/70 hover:text-white hover:bg-white/5 transition-all" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-overlay">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
-      </button>
+<!-- NAVBAR -->
+<header id="navbar" class="fixed top-10 left-0 w-full z-40 glass fade-nav">
+  <div class="flex justify-between items-center px-6 py-3">
+    <div class="flex items-center gap-3">
+      <img src="logo.png" class="w-10 h-10" />
+      <h1 class="text-lg font-bold text-cyan-400">Usama Digital</h1>
     </div>
-  </div>
-</nav>
 
-<!-- Mobile overlay menu -->
-<div id="mobile-overlay" class="hidden-menu fixed inset-0 z-50 bg-bg/98 backdrop-blur-xl flex flex-col" role="dialog" aria-modal="true" aria-label="Mobile navigation">
-  <div class="flex items-center justify-between px-6 py-5 border-b border-border">
-    <span class="font-display font-bold text-lg text-white">Usama <span class="text-cyan">Digital</span></span>
-    <button id="close-mobile" aria-label="Close menu" class="p-2 text-white/60 hover:text-white transition-colors">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
-    </button>
+    <button onclick="toggleMenu()" class="text-white text-2xl">☰</button>
   </div>
-  <nav class="flex-1 px-6 py-8">
-    <ul class="space-y-0" role="list">
-      <li><a href="#hero" class="mobile-link flex py-5 font-display font-semibold text-xl text-white/80">Home</a></li>
-      <li><a href="#services" class="mobile-link flex py-5 font-display font-semibold text-xl text-white/80">Services</a></li>
-      <li><a href="#pricing" class="mobile-link flex py-5 font-display font-semibold text-xl text-white/80">Pricing</a></li>
-      <li><a href="#results" class="mobile-link flex py-5 font-display font-semibold text-xl text-white/80">Results</a></li>
-      <li><a href="#testimonials" class="mobile-link flex py-5 font-display font-semibold text-xl text-white/80">Testimonials</a></li>
-      <li><a href="#contact" class="mobile-link flex py-5 font-display font-semibold text-xl text-white/80">Contact</a></li>
-    </ul>
-    <div class="mt-10">
-      <a href="https://wa.me/923030607545?text=Hi%20Usama%20Digital%2C%20I%27m%20interested%20in%20your%20services." target="_blank" rel="noopener noreferrer" class="btn-primary w-full flex items-center justify-center gap-3 px-6 py-4 rounded-xl text-base">
-        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.005 0C5.374 0 0 5.373 0 11.997c0 2.117.554 4.103 1.523 5.826L.057 24l6.305-1.654A11.954 11.954 0 0012.005 24C18.628 24 24 18.626 24 12.001 24 5.375 18.628 0 12.005 0zm0 21.818a9.816 9.816 0 01-5.001-1.371l-.36-.214-3.721.976.994-3.624-.235-.373a9.788 9.788 0 01-1.499-5.212c0-5.404 4.399-9.8 9.822-9.8 5.421 0 9.82 4.396 9.82 9.8 0 5.406-4.399 9.818-9.82 9.818z"/></svg>
-        Message on WhatsApp
-      </a>
-    </div>
-  </nav>
+</header>
+
+<!-- MOBILE MENU -->
+<div id="menu" class="fixed inset-0 bg-black hidden z-50 flex flex-col items-center justify-center">
+  <button onclick="toggleMenu()" class="absolute top-6 right-6 text-3xl">×</button>
+  <a href="#services" class="text-xl py-2">Services</a>
+  <a href="#pricing" class="text-xl py-2">Pricing</a>
+  <a href="#contact" class="text-xl py-2">Contact</a>
 </div>
 
-<!-- ══════════════════════════════════════════
-     HERO SECTION
-══════════════════════════════════════════ -->
-<section id="hero" class="relative min-h-screen flex items-center overflow-hidden" aria-label="Hero section" style="padding-top:90px;">
-  <!-- Background image -->
-  <div class="absolute inset-0 z-0">
-    <img src="banner.png" alt="" role="presentation" class="w-full h-full object-cover" onerror="this.style.display='none'" />
-    <div class="hero-overlay absolute inset-0"></div>
-    <!-- Extra gradient layers -->
-    <div class="absolute inset-0 bg-gradient-to-t from-bg via-bg/40 to-transparent"></div>
+<!-- HERO -->
+<section class="h-screen relative flex items-center justify-center text-center px-6">
+  <div class="absolute inset-0">
+    <img src="banner.png" class="w-full h-full object-cover opacity-40"/>
+    <div class="absolute inset-0 bg-black/70"></div>
   </div>
 
-  <!-- Grid bg -->
-  <div class="absolute inset-0 grid-bg opacity-40 z-0 pointer-events-none"></div>
+  <div class="relative z-10 max-w-3xl">
+    <h2 class="text-4xl md:text-5xl font-bold mb-4">
+      Elevate Your Business with Strategic Digital Marketing
+    </h2>
 
-  <!-- Animated orbs -->
-  <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan/8 rounded-full blur-3xl pointer-events-none z-0 animate-float"></div>
-  <div class="absolute bottom-1/3 right-1/4 w-72 h-72 bg-purple/8 rounded-full blur-3xl pointer-events-none z-0" style="animation:float 5s ease-in-out infinite reverse;"></div>
-
-  <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    <!-- Badge -->
-    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan/10 border border-cyan/20 text-cyan text-xs font-display font-semibold tracking-widest uppercase mb-8 reveal">
-      <span class="w-2 h-2 rounded-full bg-cyan animate-pulse inline-block"></span>
-      Pakistan's Premier Digital Marketing Agency
-    </div>
-
-    <!-- Headline -->
-    <h1 class="font-display font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-tight mb-6 reveal" style="transition-delay:.1s;">
-      Elevate Your Business with<br />
-      <span class="shimmer-text">Strategic Digital Marketing</span>
-    </h1>
-
-    <!-- Sub-headline -->
-    <p class="text-lg sm:text-xl text-white/60 font-body mb-10 max-w-2xl mx-auto reveal" style="transition-delay:.2s;">
-      A to Z Digital Marketing Solutions &nbsp;|&nbsp; Proven Growth for Pakistani Businesses
+    <p class="text-cyan-300 mb-2">
+      Turn your vision into measurable growth with expert digital strategies.
     </p>
 
-    <!-- Counter -->
-    <div class="inline-flex flex-col items-center mb-12 reveal" style="transition-delay:.3s;">
-      <div class="flex items-baseline gap-1">
-        <span id="hero-counter" class="counter-num font-display font-black text-5xl sm:text-6xl glow-cyan text-cyan">0</span>
-        <span class="font-display font-black text-3xl sm:text-4xl text-cyan">+</span>
-      </div>
-      <span class="text-white/50 text-sm font-body uppercase tracking-widest mt-1">Leads Generated</span>
+    <p class="text-gray-300 mb-6">Proven Growth for Pakistani Businesses</p>
+
+    <div class="text-3xl font-bold text-cyan-400 mb-6">
+      <span id="counter">0</span>+ Leads Generated
     </div>
 
-    <!-- CTAs -->
-    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 reveal" style="transition-delay:.4s;">
-      <a href="https://wa.me/923030607545?text=Hi%20Usama%20Digital%2C%20I%27m%20interested%20in%20your%20services." target="_blank" rel="noopener noreferrer" class="btn-primary inline-flex items-center gap-3 px-8 py-4 rounded-xl text-base font-display font-bold">
-        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.005 0C5.374 0 0 5.373 0 11.997c0 2.117.554 4.103 1.523 5.826L.057 24l6.305-1.654A11.954 11.954 0 0012.005 24C18.628 24 24 18.626 24 12.001 24 5.375 18.628 0 12.005 0zm0 21.818a9.816 9.816 0 01-5.001-1.371l-.36-.214-3.721.976.994-3.624-.235-.373a9.788 9.788 0 01-1.499-5.212c0-5.404 4.399-9.8 9.822-9.8 5.421 0 9.82 4.396 9.82 9.8 0 5.406-4.399 9.818-9.82 9.818z"/></svg>
+    <div class="flex flex-col md:flex-row gap-4 justify-center">
+      <a href="https://wa.me/923030607545?text=Hi%20Usama%20Digital%2C%20I%20want%20to%20get%20started"
+         class="bg-cyan-500 text-black px-6 py-3 font-bold rounded-xl">
         Get Started on WhatsApp
       </a>
-      <a href="#pricing" class="btn-outline inline-flex items-center gap-2 px-8 py-4 rounded-xl text-base font-display font-bold">
+      <a href="#pricing" class="border border-cyan-500 px-6 py-3 rounded-xl">
         Explore Pricing
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-      </a>
-    </div>
-
-    <!-- Scroll indicator -->
-    <div class="mt-16 flex flex-col items-center gap-2 text-white/20 reveal" style="transition-delay:.5s;" aria-hidden="true">
-      <span class="text-xs tracking-widest uppercase">Scroll</span>
-      <div class="w-px h-12 bg-gradient-to-b from-white/20 to-transparent"></div>
-    </div>
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
-<!-- ══════════════════════════════════════════
-     SERVICES SECTION
-══════════════════════════════════════════ -->
-<section id="services" class="py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden" aria-label="Services">
-  <div class="absolute inset-0 grid-bg opacity-20 pointer-events-none"></div>
-
-  <div class="max-w-7xl mx-auto relative z-10">
-    <!-- Header -->
-    <div class="text-center mb-16 reveal">
-      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple/10 border border-purple/20 text-purple-light text-xs font-display font-semibold tracking-widest uppercase mb-6">
-        What We Offer
-      </div>
-      <h2 class="font-display font-black text-3xl sm:text-4xl md:text-5xl text-white mb-4">
-        A to Z Digital Marketing <span class="shimmer-text">Services</span>
-      </h2>
-      <p class="text-white/50 text-lg max-w-2xl mx-auto font-body">Everything your business needs to dominate the digital landscape in Pakistan and beyond.</p>
-    </div>
-
-    <!-- Services grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-
-      <!-- SMM -->
-      <article class="service-card bg-surface rounded-2xl overflow-hidden group cursor-default reveal">
-        <div class="aspect-video overflow-hidden bg-black/50">
-          <img src="SMM.png" alt="Social Media Marketing" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='allservice.png'" loading="lazy" />
-        </div>
-        <div class="p-5">
-          <div class="w-8 h-8 rounded-lg bg-cyan/10 flex items-center justify-center mb-3">
-            <svg class="w-4 h-4 text-cyan" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a2 2 0 01-2-2v-1M3 10V6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H7l-4 4V12a2 2 0 01-2-2z"/></svg>
-          </div>
-          <h3 class="font-display font-bold text-white text-base mb-1">Social Media Marketing</h3>
-          <p class="text-white/45 text-sm font-body">Build brand authority across Facebook, Instagram, TikTok & more.</p>
-        </div>
-      </article>
-
-      <!-- SEO -->
-      <article class="service-card bg-surface rounded-2xl overflow-hidden group cursor-default reveal" style="transition-delay:.05s;">
-        <div class="aspect-video overflow-hidden bg-black/50">
-          <img src="seo.png" alt="SEO Optimization" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='allservice.png'" loading="lazy" />
-        </div>
-        <div class="p-5">
-          <div class="w-8 h-8 rounded-lg bg-cyan/10 flex items-center justify-center mb-3">
-            <svg class="w-4 h-4 text-cyan" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M17 11A6 6 0 115 11a6 6 0 0112 0z"/></svg>
-          </div>
-          <h3 class="font-display font-bold text-white text-base mb-1">SEO Optimization</h3>
-          <p class="text-white/45 text-sm font-body">Rank higher on Google and drive organic traffic that converts.</p>
-        </div>
-      </article>
-
-      <!-- Web Design -->
-      <article class="service-card bg-surface rounded-2xl overflow-hidden group cursor-default reveal" style="transition-delay:.1s;">
-        <div class="aspect-video overflow-hidden bg-black/50">
-          <img src="html.png" alt="Website & Landing Page Design" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='allservice.png'" loading="lazy" />
-        </div>
-        <div class="p-5">
-          <div class="w-8 h-8 rounded-lg bg-cyan/10 flex items-center justify-center mb-3">
-            <svg class="w-4 h-4 text-cyan" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
-          </div>
-          <h3 class="font-display font-bold text-white text-base mb-1">Website & Landing Pages</h3>
-          <p class="text-white/45 text-sm font-body">High-converting, beautiful web experiences built for results.</p>
-        </div>
-      </article>
-
-      <!-- FB Ads -->
-      <article class="service-card bg-surface rounded-2xl overflow-hidden group cursor-default reveal" style="transition-delay:.15s;">
-        <div class="aspect-video overflow-hidden bg-black/50">
-          <img src="fbig.png" alt="Facebook & Instagram Ads" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='allservice.png'" loading="lazy" />
-        </div>
-        <div class="p-5">
-          <div class="w-8 h-8 rounded-lg bg-cyan/10 flex items-center justify-center mb-3">
-            <svg class="w-4 h-4 text-cyan" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"/><path stroke-linecap="round" stroke-linejoin="round" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"/></svg>
-          </div>
-          <h3 class="font-display font-bold text-white text-base mb-1">Facebook & Instagram Ads</h3>
-          <p class="text-white/45 text-sm font-body">Performance-driven paid advertising with maximum ROI.</p>
-        </div>
-      </article>
-
-      <!-- Shopify -->
-      <article class="service-card bg-surface rounded-2xl overflow-hidden group cursor-default reveal" style="transition-delay:.2s;">
-        <div class="aspect-video overflow-hidden bg-black/50">
-          <img src="Shopify.png" alt="Shopify & E-commerce" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='allservice.png'" loading="lazy" />
-        </div>
-        <div class="p-5">
-          <div class="w-8 h-8 rounded-lg bg-cyan/10 flex items-center justify-center mb-3">
-            <svg class="w-4 h-4 text-cyan" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
-          </div>
-          <h3 class="font-display font-bold text-white text-base mb-1">Shopify & E-commerce</h3>
-          <p class="text-white/45 text-sm font-body">Launch and scale your online store with expert Shopify setup.</p>
-        </div>
-      </article>
-
-      <!-- WordPress -->
-      <article class="service-card bg-surface rounded-2xl overflow-hidden group cursor-default reveal" style="transition-delay:.25s;">
-        <div class="aspect-video overflow-hidden bg-black/50">
-          <img src="WordPress.png" alt="WordPress Development" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='allservice.png'" loading="lazy" />
-        </div>
-        <div class="p-5">
-          <div class="w-8 h-8 rounded-lg bg-cyan/10 flex items-center justify-center mb-3">
-            <svg class="w-4 h-4 text-cyan" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
-          </div>
-          <h3 class="font-display font-bold text-white text-base mb-1">WordPress Development</h3>
-          <p class="text-white/45 text-sm font-body">Custom WordPress websites that are fast, secure, and scalable.</p>
-        </div>
-      </article>
-
-      <!-- Automation -->
-      <article class="service-card bg-surface rounded-2xl overflow-hidden group cursor-default reveal" style="transition-delay:.3s;">
-        <div class="aspect-video overflow-hidden bg-black/50">
-          <img src="autmation.png" alt="Marketing Automation" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='allservice.png'" loading="lazy" />
-        </div>
-        <div class="p-5">
-          <div class="w-8 h-8 rounded-lg bg-cyan/10 flex items-center justify-center mb-3">
-            <svg class="w-4 h-4 text-cyan" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-          </div>
-          <h3 class="font-display font-bold text-white text-base mb-1">Marketing Automation</h3>
-          <p class="text-white/45 text-sm font-body">Streamline your marketing with smart automation tools and workflows.</p>
-        </div>
-      </article>
-
-      <!-- Content Creation -->
-      <article class="service-card bg-surface rounded-2xl overflow-hidden group cursor-default reveal" style="transition-delay:.35s;">
-        <div class="aspect-video overflow-hidden bg-black/50">
-          <img src="allservice.png" alt="Content Creation & Video Editing" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-        </div>
-        <div class="p-5">
-          <div class="w-8 h-8 rounded-lg bg-cyan/10 flex items-center justify-center mb-3">
-            <svg class="w-4 h-4 text-cyan" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.069A1 1 0 0121 8.82v6.36a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
-          </div>
-          <h3 class="font-display font-bold text-white text-base mb-1">Content Creation & Video</h3>
-          <p class="text-white/45 text-sm font-body">Engaging content and professional video editing to captivate your audience.</p>
-        </div>
-      </article>
-
-    </div>
-
-    <!-- CTA -->
-    <div class="text-center mt-14 reveal">
-      <a href="https://wa.me/923030607545?text=Hi%20Usama%20Digital%2C%20I%27d%20like%20to%20know%20more%20about%20your%20services." target="_blank" rel="noopener noreferrer" class="btn-primary inline-flex items-center gap-3 px-8 py-4 rounded-xl text-base font-display font-bold">
-        Discuss Your Project
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
       </a>
     </div>
   </div>
 </section>
 
-<div class="section-divider"></div>
+<!-- SERVICES -->
+<section id="services" class="py-20 px-6 max-w-6xl mx-auto">
+  <h2 class="text-3xl font-bold text-center mb-10">All Digital Marketing Services Available</h2>
 
-<!-- ══════════════════════════════════════════
-     LIVE RESULTS SECTION
-══════════════════════════════════════════ -->
-<section id="results" class="py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden" aria-label="Live Results">
-  <!-- BG -->
-  <div class="absolute inset-0 bg-gradient-to-br from-cyan/3 via-transparent to-purple/3 pointer-events-none"></div>
-
-  <div class="max-w-5xl mx-auto relative z-10">
-    <div class="text-center mb-12 reveal">
-      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-display font-semibold tracking-widest uppercase mb-6">
-        <span class="w-2 h-2 bg-red-400 rounded-full animate-pulse inline-block"></span>
-        Live Results
-      </div>
-      <h2 class="font-display font-black text-3xl sm:text-4xl md:text-5xl text-white mb-4">
-        Real Results –<br /><span class="shimmer-text">Facebook Ads Campaign</span>
-      </h2>
-      <p class="text-white/50 font-body max-w-xl mx-auto">Actual campaign data from our clients. No stock photos, no fake numbers.</p>
-    </div>
-
-    <!-- Video -->
-    <div class="reveal rounded-2xl overflow-hidden border border-cyan/15 shadow-2xl shadow-cyan/5 relative">
-      <div class="absolute inset-0 rounded-2xl border border-cyan/20 pointer-events-none z-10 animate-neon-border"></div>
-      <video
-        id="results-video"
-        class="w-full"
-        autoplay
-        muted
-        loop
-        playsinline
-        controls
-        poster="thumbnail.png"
-        aria-label="Facebook Ads Campaign live results video"
-      >
-        <source src="fbads.mp4" type="video/mp4" />
-        <p class="p-8 text-center text-white/50">Your browser does not support the video tag. <a href="fbads.mp4" class="text-cyan underline">Download the video</a></p>
-      </video>
-    </div>
-
-    <!-- Big counter with particles -->
-    <div class="text-center mt-16 relative reveal" id="results-counter-wrap">
-      <div id="particles-container" class="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true"></div>
-      <p class="text-white/40 text-sm font-body uppercase tracking-widest mb-3">Total Leads Generated</p>
-      <div class="flex items-baseline justify-center gap-2">
-        <span id="results-counter" class="counter-num font-display font-black text-7xl sm:text-8xl text-cyan glow-cyan">0</span>
-        <span class="font-display font-black text-5xl text-cyan glow-cyan">+</span>
-      </div>
-      <p class="text-white/30 text-sm mt-3 font-body">Across all campaigns • Updated monthly</p>
-    </div>
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+    <img src="SMM.png" class="rounded-xl"/>
+    <img src="seo.png" class="rounded-xl"/>
+    <img src="html.png" class="rounded-xl"/>
+    <img src="fbig.png" class="rounded-xl"/>
+    <img src="Shopify.png" class="rounded-xl"/>
+    <img src="WordPress.png" class="rounded-xl"/>
+    <img src="autmation.png" class="rounded-xl"/>
+    <img src="allservice.png" class="rounded-xl"/>
   </div>
 </section>
 
-<div class="section-divider"></div>
+<!-- RESULTS -->
+<section class="py-20 px-6 text-center">
+  <h2 class="text-3xl font-bold mb-6">Real Results – Facebook Ads Campaign</h2>
 
-<!-- ══════════════════════════════════════════
-     PRICING SECTION
-══════════════════════════════════════════ -->
-<section id="pricing" class="py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden" aria-label="Pricing">
-  <div class="absolute inset-0 grid-bg opacity-20 pointer-events-none"></div>
+  <video class="mx-auto rounded-xl w-full max-w-3xl" autoplay muted loop controls poster="thumbnail.png">
+    <source src="fbads.mp4" type="video/mp4">
+  </video>
+</section>
 
-  <div class="max-w-6xl mx-auto relative z-10">
-    <div class="text-center mb-16 reveal">
-      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan/10 border border-cyan/20 text-cyan text-xs font-display font-semibold tracking-widest uppercase mb-6">
-        Transparent Pricing
-      </div>
-      <h2 class="font-display font-black text-3xl sm:text-4xl md:text-5xl text-white mb-4">
-        Simple, <span class="shimmer-text">Honest Pricing</span>
-      </h2>
-      <p class="text-white/50 font-body max-w-xl mx-auto">No hidden fees. No surprises. Pick the plan that fits your growth stage.</p>
+<!-- PRICING -->
+<section id="pricing" class="py-20 px-6 max-w-6xl mx-auto">
+  <h2 class="text-3xl font-bold text-center mb-10">Pricing Plans</h2>
+
+  <div class="grid md:grid-cols-3 gap-6">
+
+    <!-- Starter -->
+    <div class="border border-cyan-500 p-6 rounded-xl">
+      <h3 class="text-xl font-bold">Starter</h3>
+      <p class="text-cyan-300">Rs. 10,000</p>
+      <p class="text-sm mt-2">Perfect for small businesses just getting started online.</p>
+      <ul class="text-sm mt-3 space-y-1">
+        <li>✔ Social Media Setup (2 platforms)</li>
+        <li>✔ 12 posts per month</li>
+        <li>✔ Basic graphic design</li>
+        <li>✔ Monthly report</li>
+        <li>✔ WhatsApp support</li>
+      </ul>
+      <button onclick="wa('Starter')"
+        class="mt-4 w-full bg-cyan-500 text-black py-2 rounded-lg">
+        Get Started
+      </button>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
-
-      <!-- Starter -->
-      <div class="pricing-card bg-surface rounded-2xl border border-border p-8 reveal">
-        <div class="mb-6">
-          <p class="text-white/40 text-xs font-display font-semibold uppercase tracking-widest mb-2">Starter</p>
-          <div class="flex items-baseline gap-1 mb-1">
-            <span class="text-white/40 text-lg font-body">Rs.</span>
-            <span class="font-display font-black text-4xl text-white">10,000</span>
-            <span class="text-white/30 text-sm font-body">/mo</span>
-          </div>
-          <p class="text-white/45 text-sm font-body">Perfect for small businesses just getting started online.</p>
-        </div>
-
-        <ul class="space-y-3 mb-8" role="list">
-          <li class="flex items-start gap-2 text-sm text-white/70 font-body"><span class="text-cyan mt-0.5 flex-shrink-0">✓</span> Social Media Setup (2 platforms)</li>
-          <li class="flex items-start gap-2 text-sm text-white/70 font-body"><span class="text-cyan mt-0.5 flex-shrink-0">✓</span> 12 posts per month</li>
-          <li class="flex items-start gap-2 text-sm text-white/70 font-body"><span class="text-cyan mt-0.5 flex-shrink-0">✓</span> Basic graphic design</li>
-          <li class="flex items-start gap-2 text-sm text-white/70 font-body"><span class="text-cyan mt-0.5 flex-shrink-0">✓</span> Monthly report</li>
-          <li class="flex items-start gap-2 text-sm text-white/70 font-body"><span class="text-cyan mt-0.5 flex-shrink-0">✓</span> WhatsApp support</li>
-          <li class="flex items-start gap-2 text-sm text-white/30 font-body"><span class="text-white/20 mt-0.5 flex-shrink-0">✗</span> Website design</li>
-          <li class="flex items-start gap-2 text-sm text-white/30 font-body"><span class="text-white/20 mt-0.5 flex-shrink-0">✗</span> Paid ads management</li>
-          <li class="flex items-start gap-2 text-sm text-white/30 font-body"><span class="text-white/20 mt-0.5 flex-shrink-0">✗</span> SEO optimization</li>
-        </ul>
-
-        <a href="https://wa.me/923030607545?text=Hi%20Usama%20Digital%2C%20I%27m%20interested%20in%20the%20Starter%20package%20at%20Rs.%2010%2C000%2Fmo." target="_blank" rel="noopener noreferrer" class="btn-outline w-full flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-sm font-display font-bold">
-          Get Started
-        </a>
+    <!-- Growth -->
+    <div class="border border-cyan-500 p-6 rounded-xl relative">
+      <div class="absolute top-2 right-2 bg-cyan-500 text-black text-xs px-2 py-1 rounded-full">
+        MOST POPULAR
       </div>
-
-      <!-- Growth (Popular) -->
-      <div class="pricing-card pricing-popular bg-surface rounded-2xl p-8 relative reveal" style="transition-delay:.1s;">
-        <!-- Glow -->
-        <div class="absolute inset-0 rounded-2xl bg-gradient-to-b from-cyan/5 to-transparent pointer-events-none"></div>
-        <!-- Badge -->
-        <div class="absolute -top-3.5 left-1/2 -translate-x-1/2">
-          <span class="badge-popular px-4 py-1.5 rounded-full text-xs uppercase tracking-widest">✦ Most Popular</span>
-        </div>
-
-        <div class="mb-6 mt-2">
-          <p class="text-cyan text-xs font-display font-semibold uppercase tracking-widest mb-2">Growth</p>
-          <div class="flex items-baseline gap-1 mb-1">
-            <span class="text-white/50 text-lg font-body">Rs.</span>
-            <span class="font-display font-black text-4xl text-white">20,000</span>
-            <span class="text-white/30 text-sm font-body">/mo</span>
-          </div>
-          <p class="text-white/45 text-sm font-body">Best for growing businesses ready to scale their online presence.</p>
-        </div>
-
-        <ul class="space-y-3 mb-8 relative z-10" role="list">
-          <li class="flex items-start gap-2 text-sm text-white/80 font-body"><span class="text-cyan mt-0.5 flex-shrink-0">✓</span> Social Media (3 platforms)</li>
-          <li class="flex items-start gap-2 text-sm text-white/80 font-body"><span class="text-cyan mt-0.5 flex-shrink-0">✓</span> 20 posts per month</li>
-          <li class="flex items-start gap-2 text-sm text-white/80 font-body"><span class="text-cyan mt-0.5 flex-shrink-0">✓</span> Professional graphic design</li>
-          <li class="flex items-start gap-2 text-sm text-white/80 font-body"><span class="text-cyan mt-0.5 flex-shrink-0">✓</span> 1 landing page / website</li>
-          <li class="flex items-start gap-2 text-sm text-white/80 font-body"><span class="text-cyan mt-0.5 flex-shrink-0">✓</span> Basic SEO setup</li>
-          <li class="flex items-start gap-2 text-sm text-white/80 font-body"><span class="text-cyan mt-0.5 flex-shrink-0">✓</span> Facebook & Instagram Ads</li>
-          <li class="flex items-start gap-2 text-sm text-white/80 font-body"><span class="text-cyan mt-0.5 flex-shrink-0">✓</span> Bi-weekly reports</li>
-          <li class="flex items-start gap-2 text-sm text-white/80 font-body"><span class="text-cyan mt-0.5 flex-shrink-0">✓</span> Priority WhatsApp support</li>
-        </ul>
-
-        <a href="https://wa.me/923030607545?text=Hi%20Usama%20Digital%2C%20I%27m%20interested%20in%20the%20Growth%20package%20at%20Rs.%2020%2C000%2Fmo." target="_blank" rel="noopener noreferrer" class="btn-primary relative z-10 w-full flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-sm font-display font-bold">
-          Get Started
-        </a>
-      </div>
-
-      <!-- Premium -->
-      <div class="pricing-card bg-surface rounded-2xl border border-border p-8 reveal" style="transition-delay:.2s;">
-        <div class="mb-6">
-          <div class="flex items-center justify-between mb-2">
-            <p class="text-purple-light text-xs font-display font-semibold uppercase tracking-widest">Premium</p>
-            <span class="px-2 py-1 rounded-md bg-purple/10 border border-purple/20 text-purple-light text-xs font-display font-bold">Full Suite</span>
-          </div>
-          <div class="flex items-baseline gap-1 mb-1">
-            <span class="text-white/40 text-lg font-body">Rs.</span>
-            <span class="font-display font-black text-4xl text-white">35,000</span>
-            <span class="text-white/30 text-sm font-body">/mo</span>
-          </div>
-          <p class="text-white/45 text-sm font-body">Full-service solution for established businesses wanting maximum results.</p>
-        </div>
-
-        <ul class="space-y-3 mb-8" role="list">
-          <li class="flex items-start gap-2 text-sm text-white/70 font-body"><span class="text-purple-light mt-0.5 flex-shrink-0">✓</span> All 5 platforms managed</li>
-          <li class="flex items-start gap-2 text-sm text-white/70 font-body"><span class="text-purple-light mt-0.5 flex-shrink-0">✓</span> 30+ posts per month</li>
-          <li class="flex items-start gap-2 text-sm text-white/70 font-body"><span class="text-purple-light mt-0.5 flex-shrink-0">✓</span> Premium design + video editing</li>
-          <li class="flex items-start gap-2 text-sm text-white/70 font-body"><span class="text-purple-light mt-0.5 flex-shrink-0">✓</span> Full website + eCommerce</li>
-          <li class="flex items-start gap-2 text-sm text-white/70 font-body"><span class="text-purple-light mt-0.5 flex-shrink-0">✓</span> Advanced SEO campaign</li>
-          <li class="flex items-start gap-2 text-sm text-white/70 font-body"><span class="text-purple-light mt-0.5 flex-shrink-0">✓</span> Google + FB + TikTok Ads</li>
-          <li class="flex items-start gap-2 text-sm text-white/70 font-body"><span class="text-purple-light mt-0.5 flex-shrink-0">✓</span> Weekly reports + strategy calls</li>
-          <li class="flex items-start gap-2 text-sm text-white/70 font-body"><span class="text-purple-light mt-0.5 flex-shrink-0">✓</span> Dedicated account manager</li>
-        </ul>
-
-        <a href="https://wa.me/923030607545?text=Hi%20Usama%20Digital%2C%20I%27m%20interested%20in%20the%20Premium%20package%20at%20Rs.%2035%2C000%2Fmo." target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-sm font-display font-bold border border-purple/30 text-purple-light hover:bg-purple/10 transition-all">
-          Get Started
-        </a>
-      </div>
-
+      <h3 class="text-xl font-bold">Growth</h3>
+      <p class="text-cyan-300">Rs. 20,000</p>
+      <p class="text-sm mt-2">Best for growing businesses ready to scale their online presence.</p>
+      <ul class="text-sm mt-3 space-y-1">
+        <li>✔ Social Media (3 platforms)</li>
+        <li>✔ 20 posts per month</li>
+        <li>✔ Professional graphic design</li>
+        <li>✔ 1 landing page / website</li>
+        <li>✔ Basic SEO setup</li>
+        <li>✔ Facebook & Instagram Ads</li>
+        <li>✔ Bi-weekly reports</li>
+        <li>✔ Priority WhatsApp support</li>
+      </ul>
+      <button onclick="wa('Growth')"
+        class="mt-4 w-full bg-cyan-500 text-black py-2 rounded-lg">
+        Get Started
+      </button>
     </div>
+
+    <!-- Premium -->
+    <div class="border border-cyan-500 p-6 rounded-xl">
+      <h3 class="text-xl font-bold">Premium</h3>
+      <p class="text-cyan-300">Rs. 35,000</p>
+      <p class="text-sm mt-2">Full-service solution for maximum results.</p>
+      <ul class="text-sm mt-3 space-y-1">
+        <li>✔ All 5 platforms managed</li>
+        <li>✔ 30+ posts per month</li>
+        <li>✔ Premium design + video editing</li>
+        <li>✔ Full website + eCommerce</li>
+        <li>✔ Advanced SEO campaign</li>
+        <li>✔ Google + FB + TikTok Ads</li>
+        <li>✔ Weekly reports + strategy calls</li>
+        <li>✔ Dedicated account manager</li>
+      </ul>
+      <button onclick="wa('Premium')"
+        class="mt-4 w-full bg-cyan-500 text-black py-2 rounded-lg">
+        Get Started
+      </button>
+    </div>
+
   </div>
 </section>
 
-<div class="section-divider"></div>
+<!-- TESTIMONIALS -->
+<section class="py-20 px-6 max-w-6xl mx-auto">
+  <h2 class="text-3xl font-bold text-center mb-10">What Clients Say</h2>
 
-<!-- ══════════════════════════════════════════
-     TESTIMONIALS SECTION
-══════════════════════════════════════════ -->
-<section id="testimonials" class="py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden" aria-label="Testimonials">
-  <div class="absolute inset-0 bg-gradient-to-br from-purple/3 via-transparent to-cyan/3 pointer-events-none"></div>
-
-  <div class="max-w-6xl mx-auto relative z-10">
-    <div class="text-center mb-14 reveal">
-      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-yellow-500/10 border border-yellow-500/20 text-yellow-400 text-xs font-display font-semibold tracking-widest uppercase mb-6">
-        Client Success Stories
-      </div>
-      <h2 class="font-display font-black text-3xl sm:text-4xl md:text-5xl text-white mb-4">
-        What Our <span class="shimmer-text">Clients Say</span>
-      </h2>
-      <p class="text-white/50 font-body max-w-xl mx-auto">Real feedback from real businesses we've helped grow across Pakistan.</p>
-    </div>
-
-    <!-- Stars row -->
-    <div class="flex items-center justify-center gap-1 mb-10 reveal" aria-label="5 star average rating">
-      <span class="text-yellow-400 text-2xl">★★★★★</span>
-      <span class="text-white/40 text-sm ml-2 font-body">5.0 average rating</span>
-    </div>
-
-    <!-- Testimonials grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-
-      <!-- T1 -->
-      <blockquote class="testimonial-card bg-surface border border-border rounded-2xl p-6 reveal">
-        <div class="flex gap-1 text-yellow-400 text-sm mb-4" aria-label="5 stars">★★★★★</div>
-        <p class="text-white/70 font-body text-sm leading-relaxed mb-5">"As the CEO of B&B (Boot Bazar) from Multan, we got our online setup done from Usama Digital and finally saw real growth in our business."</p>
-        <footer class="flex items-center gap-3">
-          <div class="w-9 h-9 rounded-full bg-cyan/15 flex items-center justify-center text-cyan font-display font-bold text-sm flex-shrink-0">BB</div>
-          <div>
-            <cite class="font-display font-semibold text-white text-sm not-italic">CEO, Boot Bazar</cite>
-            <p class="text-white/35 text-xs font-body">Multan, Pakistan</p>
-          </div>
-        </footer>
-      </blockquote>
-
-      <!-- T2 -->
-      <blockquote class="testimonial-card bg-surface border border-border rounded-2xl p-6 reveal" style="transition-delay:.05s;">
-        <div class="flex gap-1 text-yellow-400 text-sm mb-4" aria-label="5 stars">★★★★★</div>
-        <p class="text-white/70 font-body text-sm leading-relaxed mb-5">"Usama Digital transformed our Facebook ad campaigns completely. Within 6 weeks, our cost per lead dropped by 40% and we saw a 3x return on ad spend. Incredible results!"</p>
-        <footer class="flex items-center gap-3">
-          <div class="w-9 h-9 rounded-full bg-purple/15 flex items-center justify-center text-purple-light font-display font-bold text-sm flex-shrink-0">AK</div>
-          <div>
-            <cite class="font-display font-semibold text-white text-sm not-italic">Ahmed Khan</cite>
-            <p class="text-white/35 text-xs font-body">E-commerce Owner, Lahore</p>
-          </div>
-        </footer>
-      </blockquote>
-
-      <!-- T3 -->
-      <blockquote class="testimonial-card bg-surface border border-border rounded-2xl p-6 reveal" style="transition-delay:.1s;">
-        <div class="flex gap-1 text-yellow-400 text-sm mb-4" aria-label="5 stars">★★★★★</div>
-        <p class="text-white/70 font-body text-sm leading-relaxed mb-5">"Our Shopify store was struggling to get traffic. After Usama Digital handled our SEO and paid ads, we went from 50 to 500+ monthly orders in just 3 months. Worth every rupee."</p>
-        <footer class="flex items-center gap-3">
-          <div class="w-9 h-9 rounded-full bg-cyan/15 flex items-center justify-center text-cyan font-display font-bold text-sm flex-shrink-0">SR</div>
-          <div>
-            <cite class="font-display font-semibold text-white text-sm not-italic">Sara Raza</cite>
-            <p class="text-white/35 text-xs font-body">Shopify Store Owner, Karachi</p>
-          </div>
-        </footer>
-      </blockquote>
-
-      <!-- T4 -->
-      <blockquote class="testimonial-card bg-surface border border-border rounded-2xl p-6 reveal" style="transition-delay:.15s;">
-        <div class="flex gap-1 text-yellow-400 text-sm mb-4" aria-label="5 stars">★★★★★</div>
-        <p class="text-white/70 font-body text-sm leading-relaxed mb-5">"Professional, communicative, and results-driven. Usama Digital built our landing page and ran Instagram ads that generated 200+ qualified leads in the first month. Highly recommended!"</p>
-        <footer class="flex items-center gap-3">
-          <div class="w-9 h-9 rounded-full bg-purple/15 flex items-center justify-center text-purple-light font-display font-bold text-sm flex-shrink-0">FM</div>
-          <div>
-            <cite class="font-display font-semibold text-white text-sm not-italic">Fahad Malik</cite>
-            <p class="text-white/35 text-xs font-body">Real Estate Agent, Islamabad</p>
-          </div>
-        </footer>
-      </blockquote>
-
-      <!-- T5 -->
-      <blockquote class="testimonial-card bg-surface border border-border rounded-2xl p-6 reveal" style="transition-delay:.2s;">
-        <div class="flex gap-1 text-yellow-400 text-sm mb-4" aria-label="5 stars">★★★★★</div>
-        <p class="text-white/70 font-body text-sm leading-relaxed mb-5">"We were invisible on Google before working with Usama Digital. Now we rank on the first page for our target keywords and our organic traffic has grown by 180%. Their SEO team is exceptional."</p>
-        <footer class="flex items-center gap-3">
-          <div class="w-9 h-9 rounded-full bg-cyan/15 flex items-center justify-center text-cyan font-display font-bold text-sm flex-shrink-0">NI</div>
-          <div>
-            <cite class="font-display font-semibold text-white text-sm not-italic">Nadia Iqbal</cite>
-            <p class="text-white/35 text-xs font-body">Education Consultant, Faisalabad</p>
-          </div>
-        </footer>
-      </blockquote>
-
-      <!-- T6 -->
-      <blockquote class="testimonial-card bg-surface border border-border rounded-2xl p-6 reveal" style="transition-delay:.25s;">
-        <div class="flex gap-1 text-yellow-400 text-sm mb-4" aria-label="5 stars">★★★★★</div>
-        <p class="text-white/70 font-body text-sm leading-relaxed mb-5">"Best investment I made for my restaurant business. Usama Digital managed our social media, ran targeted ads, and helped us grow our delivery orders by 250% within two months. They truly understand Pakistani markets."</p>
-        <footer class="flex items-center gap-3">
-          <div class="w-9 h-9 rounded-full bg-purple/15 flex items-center justify-center text-purple-light font-display font-bold text-sm flex-shrink-0">ZA</div>
-          <div>
-            <cite class="font-display font-semibold text-white text-sm not-italic">Zain Ahmed</cite>
-            <p class="text-white/35 text-xs font-body">Restaurant Owner, Rawalpindi</p>
-          </div>
-        </footer>
-      </blockquote>
-
-    </div>
+  <div class="grid md:grid-cols-3 gap-6 text-sm">
+    <div class="border p-4 rounded-xl">“Excellent results in just 2 weeks!”</div>
+    <div class="border p-4 rounded-xl">“Professional team and great communication.”</div>
+    <div class="border p-4 rounded-xl">“Helped us scale our online store fast.”</div>
+    <div class="border p-4 rounded-xl">“Best marketing agency in Pakistan.”</div>
+    <div class="border p-4 rounded-xl">“Boot Bazar review exactly”</div>
+    <div class="border p-4 rounded-xl">“Highly recommended for ads management.”</div>
   </div>
 </section>
 
-<div class="section-divider"></div>
+<!-- CONTACT -->
+<section id="contact" class="py-20 px-6 max-w-4xl mx-auto text-center">
+  <h2 class="text-3xl font-bold mb-6">Contact Us</h2>
 
-<!-- ══════════════════════════════════════════
-     SOCIAL LINKS
-══════════════════════════════════════════ -->
-<section class="py-14 px-4 sm:px-6 lg:px-8" aria-label="Social media links">
-  <div class="max-w-4xl mx-auto text-center reveal">
-    <p class="text-white/30 text-xs font-display uppercase tracking-widest mb-8">Follow Us On Social Media</p>
-    <div class="flex items-center justify-center gap-4 flex-wrap">
+  <p class="mb-2">📞 03030607545</p>
+  <p class="mb-6">📧 usamadigital0@gmail.com</p>
 
-      <!-- TikTok -->
-      <a href="https://www.tiktok.com/@usama.digital1" target="_blank" rel="noopener noreferrer" aria-label="Usama Digital on TikTok" class="group flex items-center gap-3 px-6 py-3.5 rounded-xl bg-surface border border-border hover:border-white/20 hover:bg-white/5 transition-all">
-        <svg class="w-5 h-5 text-white/60 group-hover:text-white transition-colors" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.37 6.37 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.5a8.17 8.17 0 004.79 1.52V6.55a4.83 4.83 0 01-1.02.14z"/></svg>
-        <span class="text-sm font-display font-semibold text-white/60 group-hover:text-white transition-colors">TikTok</span>
-      </a>
+  <video class="mx-auto rounded-xl mb-6" autoplay muted loop>
+    <source src="map.mp4" type="video/mp4">
+  </video>
 
-      <!-- Facebook -->
-      <a href="https://www.facebook.com/share/1arnvG7nvf/" target="_blank" rel="noopener noreferrer" aria-label="Usama Digital on Facebook" class="group flex items-center gap-3 px-6 py-3.5 rounded-xl bg-surface border border-border hover:border-blue-500/30 hover:bg-blue-500/5 transition-all">
-        <svg class="w-5 h-5 text-white/60 group-hover:text-blue-400 transition-colors" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-        <span class="text-sm font-display font-semibold text-white/60 group-hover:text-blue-400 transition-colors">Facebook</span>
-      </a>
-
-      <!-- Instagram -->
-      <a href="https://www.instagram.com/usama.digital" target="_blank" rel="noopener noreferrer" aria-label="Usama Digital on Instagram" class="group flex items-center gap-3 px-6 py-3.5 rounded-xl bg-surface border border-border hover:border-pink-500/30 hover:bg-pink-500/5 transition-all">
-        <svg class="w-5 h-5 text-white/60 group-hover:text-pink-400 transition-colors" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-        <span class="text-sm font-display font-semibold text-white/60 group-hover:text-pink-400 transition-colors">Instagram</span>
-      </a>
-
-    </div>
-  </div>
+  <form class="grid gap-4">
+    <input class="p-3 rounded bg-black border border-cyan-500" placeholder="Your Name"/>
+    <input class="p-3 rounded bg-black border border-cyan-500" placeholder="Email"/>
+    <textarea class="p-3 rounded bg-black border border-cyan-500" placeholder="Message"></textarea>
+    <button class="bg-cyan-500 text-black py-3 rounded-xl">Send Message</button>
+  </form>
 </section>
 
-<div class="section-divider"></div>
+<!-- SOCIAL -->
+<div class="text-center py-10 space-x-6">
+  <a href="https://www.tiktok.com/@usama.digital1">TikTok</a>
+  <a href="https://www.facebook.com/share/1arnvG7nvf/">Facebook</a>
+  <a href="https://www.instagram.com/usama.digital">Instagram</a>
+</div>
 
-<!-- ══════════════════════════════════════════
-     CONTACT SECTION
-══════════════════════════════════════════ -->
-<section id="contact" class="py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden" aria-label="Contact">
-  <!-- Background video -->
-  <div class="absolute inset-0 z-0">
-    <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-10" aria-hidden="true">
-      <source src="map.mp4" type="video/mp4" />
-    </video>
-    <div class="absolute inset-0 bg-gradient-to-br from-bg via-bg/90 to-bg"></div>
-  </div>
-
-  <div class="max-w-6xl mx-auto relative z-10">
-    <div class="text-center mb-16 reveal">
-      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-xs font-display font-semibold tracking-widest uppercase mb-6">
-        Let's Talk
-      </div>
-      <h2 class="font-display font-black text-3xl sm:text-4xl md:text-5xl text-white mb-4">
-        Ready to Grow Your <span class="shimmer-text">Business?</span>
-      </h2>
-      <p class="text-white/50 font-body max-w-xl mx-auto">Get in touch today. We respond within 24 hours and offer a free consultation.</p>
-    </div>
-
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
-
-      <!-- Contact info -->
-      <div class="reveal space-y-6">
-        <!-- WhatsApp -->
-        <a href="https://wa.me/923030607545?text=Hi%20Usama%20Digital%2C%20I%27m%20interested%20in%20your%20services." target="_blank" rel="noopener noreferrer" class="flex items-center gap-5 p-5 bg-surface border border-border rounded-2xl hover:border-green-500/30 hover:bg-green-500/5 transition-all group" aria-label="Chat on WhatsApp">
-          <div class="w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-green-500/20 transition-colors">
-            <svg class="w-6 h-6 text-green-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.005 0C5.374 0 0 5.373 0 11.997c0 2.117.554 4.103 1.523 5.826L.057 24l6.305-1.654A11.954 11.954 0 0012.005 24C18.628 24 24 18.626 24 12.001 24 5.375 18.628 0 12.005 0zm0 21.818a9.816 9.816 0 01-5.001-1.371l-.36-.214-3.721.976.994-3.624-.235-.373a9.788 9.788 0 01-1.499-5.212c0-5.404 4.399-9.8 9.822-9.8 5.421 0 9.82 4.396 9.82 9.8 0 5.406-4.399 9.818-9.82 9.818z"/></svg>
-          </div>
-          <div>
-            <p class="text-white/40 text-xs font-body uppercase tracking-widest mb-0.5">WhatsApp</p>
-            <p class="font-display font-bold text-white">+92 303 060 7545</p>
-          </div>
-        </a>
-
-        <!-- Email -->
-        <a href="mailto:usamadigital0@gmail.com" class="flex items-center gap-5 p-5 bg-surface border border-border rounded-2xl hover:border-cyan/30 hover:bg-cyan/3 transition-all group" aria-label="Send email">
-          <div class="w-12 h-12 rounded-xl bg-cyan/10 flex items-center justify-center flex-shrink-0 group-hover:bg-cyan/15 transition-colors">
-            <svg class="w-6 h-6 text-cyan" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-          </div>
-          <div>
-            <p class="text-white/40 text-xs font-body uppercase tracking-widest mb-0.5">Email</p>
-            <p class="font-display font-bold text-white text-sm sm:text-base">usamadigital0@gmail.com</p>
-          </div>
-        </a>
-
-        <!-- Social quick links -->
-        <div class="p-5 bg-surface border border-border rounded-2xl">
-          <p class="text-white/40 text-xs font-body uppercase tracking-widest mb-4">Follow Us</p>
-          <div class="flex gap-3">
-            <a href="https://www.tiktok.com/@usama.digital1" target="_blank" rel="noopener noreferrer" aria-label="TikTok" class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-white/50 hover:text-white hover:bg-white/10 transition-all">
-              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.37 6.37 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.5a8.17 8.17 0 004.79 1.52V6.55a4.83 4.83 0 01-1.02.14z"/></svg>
-            </a>
-            <a href="https://www.facebook.com/share/1arnvG7nvf/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-white/50 hover:text-blue-400 hover:bg-blue-500/10 transition-all">
-              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-            </a>
-            <a href="https://www.instagram.com/usama.digital" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-white/50 hover:text-pink-400 hover:bg-pink-500/10 transition-all">
-              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Contact form -->
-      <div class="bg-surface border border-border rounded-2xl p-7 reveal" style="transition-delay:.1s;">
-        <h3 class="font-display font-bold text-white text-xl mb-6">Send a Message</h3>
-        <form id="contact-form" novalidate>
-          <div class="space-y-4">
-            <div>
-              <label for="cf-name" class="block text-white/50 text-xs font-body uppercase tracking-widest mb-2">Your Name</label>
-              <input type="text" id="cf-name" name="name" required autocomplete="name" placeholder="Ahmed Khan" class="form-input w-full px-4 py-3 rounded-xl text-sm font-body placeholder-white/20" aria-required="true" />
-            </div>
-            <div>
-              <label for="cf-business" class="block text-white/50 text-xs font-body uppercase tracking-widest mb-2">Business Name</label>
-              <input type="text" id="cf-business" name="business" placeholder="Your Business" class="form-input w-full px-4 py-3 rounded-xl text-sm font-body placeholder-white/20" />
-            </div>
-            <div>
-              <label for="cf-message" class="block text-white/50 text-xs font-body uppercase tracking-widest mb-2">Message</label>
-              <textarea id="cf-message" name="message" required rows="4" placeholder="Tell us about your project and goals..." class="form-input w-full px-4 py-3 rounded-xl text-sm font-body placeholder-white/20 resize-none" aria-required="true"></textarea>
-            </div>
-            <button type="submit" class="btn-primary w-full flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-sm font-display font-bold">
-              Send Message
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
-            </button>
-          </div>
-        </form>
-        <!-- Success message -->
-        <div id="form-success" class="hidden mt-4 p-4 rounded-xl bg-green-500/10 border border-green-500/20 text-green-400 text-sm font-body flex items-center gap-3" role="alert" aria-live="polite">
-          <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          Thank you! We'll be in touch shortly.
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
-<!-- ══════════════════════════════════════════
-     FOOTER
-══════════════════════════════════════════ -->
-<footer class="py-12 px-4 sm:px-6 lg:px-8 bg-bg" aria-label="Footer">
-  <div class="max-w-6xl mx-auto">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
-
-      <!-- Brand -->
-      <div>
-        <div class="flex items-center gap-3 mb-4">
-          <div class="w-9 h-9 rounded-lg overflow-hidden border border-cyan/20">
-            <img src="logo.png" alt="Usama Digital" class="w-full h-full object-contain bg-black/50 p-1" onerror="this.parentElement.innerHTML='<div class=\'w-full h-full flex items-center justify-center bg-cyan/10 text-cyan font-display font-black text-sm\'>UD</div>'" />
-          </div>
-          <span class="font-display font-bold text-lg text-white">Usama <span class="text-cyan">Digital</span></span>
-        </div>
-        <p class="text-white/35 text-sm font-body leading-relaxed max-w-xs">Pakistan's premium digital marketing agency helping businesses grow with strategic, data-driven solutions.</p>
-      </div>
-
-      <!-- Quick Nav -->
-      <nav aria-label="Footer navigation">
-        <p class="text-white/40 text-xs font-display uppercase tracking-widest mb-4">Quick Links</p>
-        <ul class="space-y-2" role="list">
-          <li><a href="#hero" class="text-white/50 text-sm font-body hover:text-cyan transition-colors">Home</a></li>
-          <li><a href="#services" class="text-white/50 text-sm font-body hover:text-cyan transition-colors">Services</a></li>
-          <li><a href="#pricing" class="text-white/50 text-sm font-body hover:text-cyan transition-colors">Pricing</a></li>
-          <li><a href="#results" class="text-white/50 text-sm font-body hover:text-cyan transition-colors">Results</a></li>
-          <li><a href="#testimonials" class="text-white/50 text-sm font-body hover:text-cyan transition-colors">Testimonials</a></li>
-          <li><a href="#contact" class="text-white/50 text-sm font-body hover:text-cyan transition-colors">Contact</a></li>
-        </ul>
-      </nav>
-
-      <!-- Socials -->
-      <div>
-        <p class="text-white/40 text-xs font-display uppercase tracking-widest mb-4">Connect</p>
-        <div class="flex flex-col gap-3">
-          <a href="https://www.tiktok.com/@usama.digital1" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-white/50 text-sm font-body hover:text-white transition-colors" aria-label="TikTok">
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.37 6.37 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.5a8.17 8.17 0 004.79 1.52V6.55a4.83 4.83 0 01-1.02.14z"/></svg>
-            @usama.digital1
-          </a>
-          <a href="https://www.facebook.com/share/1arnvG7nvf/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-white/50 text-sm font-body hover:text-blue-400 transition-colors" aria-label="Facebook">
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-            Usama Digital
-          </a>
-          <a href="https://www.instagram.com/usama.digital" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-white/50 text-sm font-body hover:text-pink-400 transition-colors" aria-label="Instagram">
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-            @usama.digital
-          </a>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Bottom bar -->
-    <div class="pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p class="text-white/25 text-sm font-body">© 2026 Usama Digital – All Rights Reserved</p>
-      <p class="text-white/20 text-xs font-body">Digital Marketing Agency in Pakistan</p>
-    </div>
-  </div>
-</footer>
-
-<!-- ══════════════════════════════════════════
-     FLOATING WHATSAPP BUTTON
-══════════════════════════════════════════ -->
-<a
-  href="https://wa.me/923030607545?text=Hi%20Usama%20Digital%2C%20I%27m%20interested%20in%20your%20services."
-  target="_blank"
-  rel="noopener noreferrer"
-  class="wa-btn fixed bottom-6 right-6 z-50 w-13 h-13 bg-green-500 hover:bg-green-400 rounded-full flex items-center justify-center shadow-lg shadow-green-500/30 transition-all hover:scale-110"
-  aria-label="Chat with us on WhatsApp"
-  style="width:52px;height:52px;"
->
-  <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.005 0C5.374 0 0 5.373 0 11.997c0 2.117.554 4.103 1.523 5.826L.057 24l6.305-1.654A11.954 11.954 0 0012.005 24C18.628 24 24 18.626 24 12.001 24 5.375 18.628 0 12.005 0zm0 21.818a9.816 9.816 0 01-5.001-1.371l-.36-.214-3.721.976.994-3.624-.235-.373a9.788 9.788 0 01-1.499-5.212c0-5.404 4.399-9.8 9.822-9.8 5.421 0 9.82 4.396 9.82 9.8 0 5.406-4.399 9.818-9.82 9.818z"/></svg>
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/923030607545"
+   class="fixed bottom-6 right-6 bg-cyan-500 text-black px-4 py-3 rounded-full shadow-lg animate-pulse">
+  WhatsApp
 </a>
 
-<!-- Toast notification -->
-<div id="toast" class="hidden fixed top-20 right-4 z-50 px-5 py-3 rounded-xl bg-cyan/10 border border-cyan/30 text-cyan text-sm font-display font-semibold backdrop-blur-lg" role="status" aria-live="polite"></div>
+<!-- FOOTER -->
+<footer class="text-center py-6 border-t border-gray-800">
+  <p>© 2026 Usama Digital. All Rights Reserved.</p>
+</footer>
 
-<!-- ══════════════════════════════════════════
-     JAVASCRIPT
-══════════════════════════════════════════ -->
+<!-- JS -->
 <script>
-  // ─── Offer bar countdown ───
-  let offerSeconds = 24 * 3600;
-  const countdownEl = document.getElementById('countdown');
-  const offerRestartedEl = document.getElementById('offer-restarted');
+  // OFFER TIMER
+  let seconds = 24 * 60 * 60;
 
-  function pad(n) { return String(n).padStart(2,'0'); }
+  function updateTimer() {
+    let h = String(Math.floor(seconds / 3600)).padStart(2,'0');
+    let m = String(Math.floor((seconds % 3600)/60)).padStart(2,'0');
+    let s = String(seconds % 60).padStart(2,'0');
 
-  function updateCountdown() {
-    if (offerSeconds <= 0) {
-      offerSeconds = 24 * 3600;
-      offerRestartedEl.classList.remove('hidden');
-      setTimeout(() => offerRestartedEl.classList.add('hidden'), 3000);
+    const timer = document.getElementById("timer");
+    timer.innerText = `${h}:${m}:${s}`;
+
+    if(seconds <= 0){
+      seconds = 24 * 60 * 60;
+      timer.classList.add("glow");
+      setTimeout(()=>timer.classList.remove("glow"),1000);
+    } else {
+      seconds--;
     }
-    const h = Math.floor(offerSeconds / 3600);
-    const m = Math.floor((offerSeconds % 3600) / 60);
-    const s = offerSeconds % 60;
-    countdownEl.textContent = `${pad(h)}:${pad(m)}:${pad(s)}`;
-    offerSeconds--;
   }
-  updateCountdown();
-  setInterval(updateCountdown, 1000);
+  setInterval(updateTimer,1000);
 
-  // Close offer bar
-  document.getElementById('close-offer').addEventListener('click', () => {
-    const bar = document.getElementById('offer-bar');
-    bar.style.maxHeight = bar.offsetHeight + 'px';
-    requestAnimationFrame(() => {
-      bar.style.transition = 'max-height .4s ease, opacity .4s ease, padding .4s ease';
-      bar.style.maxHeight = '0';
-      bar.style.opacity = '0';
-      bar.style.paddingTop = '0';
-      bar.style.paddingBottom = '0';
-      bar.style.overflow = 'hidden';
-    });
-    setTimeout(() => {
-      bar.style.display = 'none';
-      document.getElementById('navbar').style.top = '0';
-    }, 420);
+  // COUNTER
+  let count = 0;
+  let counterEl = document.getElementById("counter");
+  let interval = setInterval(()=>{
+    count++;
+    counterEl.innerText = count;
+    if(count >= 999){
+      counterEl.innerText = "999+";
+      clearInterval(interval);
+    }
+  }, 5);
+
+  // NAVBAR SCROLL HIDE/SHOW
+  let lastScroll = 0;
+  const navbar = document.getElementById("navbar");
+
+  window.addEventListener("scroll", () => {
+    let current = window.pageYOffset;
+    if(current > lastScroll){
+      navbar.style.transform = "translateY(-120%)";
+    } else {
+      navbar.style.transform = "translateY(0)";
+    }
+    lastScroll = current;
   });
 
-  // ─── Mobile menu ───
-  const overlay = document.getElementById('mobile-overlay');
-  const hamburger = document.getElementById('hamburger');
-
-  function openMenu() {
-    overlay.classList.remove('hidden-menu');
-    overlay.classList.add('open-menu');
-    hamburger.setAttribute('aria-expanded', 'true');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeMenu() {
-    overlay.classList.remove('open-menu');
-    overlay.classList.add('hidden-menu');
-    hamburger.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
+  function toggleMenu(){
+    document.getElementById("menu").classList.toggle("hidden");
   }
 
-  hamburger.addEventListener('click', openMenu);
-  document.getElementById('close-mobile').addEventListener('click', closeMenu);
-  overlay.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
-
-  // ─── Navbar scroll offset ───
-  window.addEventListener('scroll', () => {
-    const navbar = document.getElementById('navbar');
-    const offerBar = document.getElementById('offer-bar');
-    if (window.scrollY > 50) {
-      navbar.style.top = offerBar.style.display === 'none' ? '0' : '0';
-    }
-  });
-
-  // ─── Scroll reveal ───
-  const reveals = document.querySelectorAll('.reveal');
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-  reveals.forEach(el => revealObserver.observe(el));
-
-  // ─── Animated counters ───
-  function animateCounter(el, target, duration = 2000) {
-    let start = 0;
-    const step = (timestamp) => {
-      if (!start) start = timestamp;
-      const progress = Math.min((timestamp - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      el.textContent = Math.floor(eased * target);
-      if (progress < 1) requestAnimationFrame(step);
-      else el.textContent = target;
-    };
-    requestAnimationFrame(step);
+  function wa(plan){
+    window.open(`https://wa.me/923030607545?text=Hi%20Usama%20Digital%2C%20I%20am%20interested%20in%20${plan}%20Package`);
   }
-
-  // Hero counter
-  const heroCounter = document.getElementById('hero-counter');
-  let heroAnimated = false;
-  const heroObserver = new IntersectionObserver((entries) => {
-    if (entries[0].isIntersecting && !heroAnimated) {
-      heroAnimated = true;
-      animateCounter(heroCounter, 999, 2500);
-    }
-  });
-  heroObserver.observe(heroCounter);
-
-  // Results counter
-  const resultsCounter = document.getElementById('results-counter');
-  let resultsAnimated = false;
-  const resultsObserver = new IntersectionObserver((entries) => {
-    if (entries[0].isIntersecting && !resultsAnimated) {
-      resultsAnimated = true;
-      animateCounter(resultsCounter, 999, 2500);
-      spawnParticles();
-    }
-  });
-  resultsObserver.observe(resultsCounter);
-
-  // ─── Particles ───
-  function spawnParticles() {
-    const container = document.getElementById('particles-container');
-    const colors = ['#22d3ee', '#a855f7', '#67e8f9', '#c084fc', '#ffffff'];
-    for (let i = 0; i < 24; i++) {
-      setTimeout(() => {
-        const p = document.createElement('div');
-        p.className = 'particle';
-        const size = Math.random() * 8 + 4;
-        p.style.cssText = `
-          width:${size}px; height:${size}px;
-          background:${colors[Math.floor(Math.random()*colors.length)]};
-          left:${Math.random()*100}%;
-          bottom:${Math.random()*40}%;
-          opacity:0.8;
-          animation-duration:${1.5 + Math.random()*1.5}s;
-          animation-delay:${Math.random()*0.5}s;
-        `;
-        container.appendChild(p);
-        setTimeout(() => p.remove(), 3000);
-      }, i * 80);
-    }
-  }
-
-  // ─── Contact form ───
-  document.getElementById('contact-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const name = document.getElementById('cf-name').value.trim();
-    const business = document.getElementById('cf-business').value.trim();
-    const message = document.getElementById('cf-message').value.trim();
-
-    if (!name || !message) {
-      showToast('Please fill in required fields.');
-      return;
-    }
-
-    // Redirect to WhatsApp with pre-filled message
-    const waMsg = encodeURIComponent(`Hi Usama Digital!\n\nName: ${name}\nBusiness: ${business || 'N/A'}\nMessage: ${message}`);
-    window.open(`https://wa.me/923030607545?text=${waMsg}`, '_blank', 'noopener,noreferrer');
-
-    document.getElementById('form-success').classList.remove('hidden');
-    this.reset();
-    setTimeout(() => document.getElementById('form-success').classList.add('hidden'), 5000);
-  });
-
-  // ─── Toast ───
-  function showToast(msg) {
-    const toast = document.getElementById('toast');
-    toast.textContent = msg;
-    toast.classList.remove('hidden');
-    toast.classList.add('toast');
-    setTimeout(() => {
-      toast.classList.add('hidden');
-      toast.classList.remove('toast');
-    }, 3000);
-  }
-
-  // ─── Offer bar height tracking for navbar offset ───
-  function syncNavbarOffset() {
-    const bar = document.getElementById('offer-bar');
-    const navbar = document.getElementById('navbar');
-    if (bar.style.display !== 'none') {
-      navbar.style.top = bar.offsetHeight + 'px';
-    }
-  }
-  syncNavbarOffset();
-  window.addEventListener('resize', syncNavbarOffset);
 </script>
+
 </body>
-</html>
+    </html>
