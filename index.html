@@ -1,305 +1,368 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Usama Digital | Premium Digital Marketing Agency in Pakistan</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <style>
-    body { background:#0a0a0a; color:white; }
-    .glass { background: rgba(10,10,10,0.6); backdrop-filter: blur(12px); }
-    .marquee {
-      display: flex;
-      width: max-content;
-      animation: scroll 18s linear infinite;
-    }
-    @keyframes scroll {
-      0% { transform: translateX(100%); }
-      100% { transform: translateX(-100%); }
-    }
-    .glow {
-      animation: glow 1s ease-in-out;
-    }
-    @keyframes glow {
-      0% { box-shadow: 0 0 0px #22d3ee; }
-      50% { box-shadow: 0 0 25px #22d3ee; }
-      100% { box-shadow: 0 0 0px #22d3ee; }
-    }
-    .fade-nav {
-      transition: transform 0.4s ease;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usama Digital | Premium Digital Marketing Agency in Pakistan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        
+        :root {
+            --primary-cyan: #22d3ee;
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+        
+        .tail-container {
+            max-width: 1280px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Marquee Animation */
+        .marquee {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        
+        .marquee-content {
+            display: inline-flex;
+            animation: marquee-slide 35s linear infinite;
+        }
+        
+        @keyframes marquee-slide {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        /* Navbar Scroll Effect */
+        .navbar {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .navbar-hidden {
+            transform: translateY(-100%);
+        }
+        
+        /* Hero Counter Animation */
+        .counter {
+            font-variant-numeric: tabular-nums;
+        }
+        
+        /* Video Container */
+        .video-container video {
+            width: 100%;
+            height: auto;
+            border-radius: 16px;
+        }
+        
+        /* Floating WhatsApp */
+        .whatsapp-float {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+        }
+        
+        /* Card Hover */
+        .pricing-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgb(34 211 238 / 0.25);
+        }
+        
+        /* Testimonial */
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+    </style>
 </head>
-
-<body class="font-sans">
-
-<!-- OFFER BAR -->
-<div class="fixed top-0 left-0 w-full z-50 bg-black border-b border-cyan-500 overflow-hidden">
-  <div class="marquee text-sm py-2 px-4 text-cyan-300 font-semibold whitespace-nowrap">
-    🎯 10% OFF Limited Time Offer – Ends in <span id="timer" class="ml-2 font-bold text-white"></span>
-  </div>
-</div>
-
-<!-- NAVBAR -->
-<header id="navbar" class="fixed top-10 left-0 w-full z-40 glass fade-nav">
-  <div class="flex justify-between items-center px-6 py-3">
-    <div class="flex items-center gap-3">
-      <img src="logo.png" class="w-10 h-10" />
-      <h1 class="text-lg font-bold text-cyan-400">Usama Digital</h1>
+<body class="bg-[#0a0a0a] text-white overflow-x-hidden">
+    
+    <!-- Auto-Sliding Offer Bar -->
+    <div id="offer-bar" class="bg-black border-b border-cyan-500 py-3 sticky top-0 z-50">
+        <div class="marquee">
+            <div id="marquee-content" class="marquee-content flex items-center gap-12 text-sm font-medium text-cyan-300">
+                <!-- Content duplicated for seamless loop -->
+                <div class="flex items-center gap-3 px-8">
+                    🎯 <span class="text-white">10% OFF Limited Time Offer – Ends in</span> 
+                    <span id="timer" class="font-mono text-lg tracking-widest text-cyan-400">23:59:59</span>
+                </div>
+                <div class="flex items-center gap-3 px-8">
+                    🎯 <span class="text-white">10% OFF Limited Time Offer – Ends in</span> 
+                    <span id="timer2" class="font-mono text-lg tracking-widest text-cyan-400">23:59:59</span>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <button onclick="toggleMenu()" class="text-white text-2xl">☰</button>
-  </div>
-</header>
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar bg-black/80 backdrop-blur-lg border-b border-white/10 fixed w-full z-40">
+        <div class="tail-container px-6 py-5 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <img src="logo.png" alt="Usama Digital Logo" class="h-10 w-10">
+                <span class="text-2xl font-bold tracking-tight">Usama Digital</span>
+            </div>
+            
+            <button id="menu-btn" class="lg:hidden text-3xl">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            
+            <div class="hidden lg:flex items-center gap-8 text-sm font-medium">
+                <a href="#hero" class="hover:text-cyan-400 transition-colors">Home</a>
+                <a href="#services" class="hover:text-cyan-400 transition-colors">Services</a>
+                <a href="#pricing" class="hover:text-cyan-400 transition-colors">Pricing</a>
+                <a href="#results" class="hover:text-cyan-400 transition-colors">Results</a>
+                <a href="#testimonials" class="hover:text-cyan-400 transition-colors">Testimonials</a>
+                <a href="#contact" class="hover:text-cyan-400 transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
 
-<!-- MOBILE MENU -->
-<div id="menu" class="fixed inset-0 bg-black hidden z-50 flex flex-col items-center justify-center">
-  <button onclick="toggleMenu()" class="absolute top-6 right-6 text-3xl">×</button>
-  <a href="#services" class="text-xl py-2">Services</a>
-  <a href="#pricing" class="text-xl py-2">Pricing</a>
-  <a href="#contact" class="text-xl py-2">Contact</a>
-</div>
-
-<!-- HERO -->
-<section class="h-screen relative flex items-center justify-center text-center px-6">
-  <div class="absolute inset-0">
-    <img src="banner.png" class="w-full h-full object-cover opacity-40"/>
-    <div class="absolute inset-0 bg-black/70"></div>
-  </div>
-
-  <div class="relative z-10 max-w-3xl">
-    <h2 class="text-4xl md:text-5xl font-bold mb-4">
-      Elevate Your Business with Strategic Digital Marketing
-    </h2>
-
-    <p class="text-cyan-300 mb-2">
-      Turn your vision into measurable growth with expert digital strategies.
-    </p>
-
-    <p class="text-gray-300 mb-6">Proven Growth for Pakistani Businesses</p>
-
-    <div class="text-3xl font-bold text-cyan-400 mb-6">
-      <span id="counter">0</span>+ Leads Generated
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-black/95 z-50 hidden flex-col">
+        <div class="p-6 flex justify-end">
+            <button id="close-menu" class="text-4xl text-cyan-400">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <div class="flex flex-col items-center gap-8 text-2xl font-medium pt-10">
+            <a href="#hero" class="mobile-link">Home</a>
+            <a href="#services" class="mobile-link">Services</a>
+            <a href="#pricing" class="mobile-link">Pricing</a>
+            <a href="#results" class="mobile-link">Results</a>
+            <a href="#testimonials" class="mobile-link">Testimonials</a>
+            <a href="#contact" class="mobile-link">Contact</a>
+        </div>
     </div>
 
-    <div class="flex flex-col md:flex-row gap-4 justify-center">
-      <a href="https://wa.me/923030607545?text=Hi%20Usama%20Digital%2C%20I%20want%20to%20get%20started"
-         class="bg-cyan-500 text-black px-6 py-3 font-bold rounded-xl">
-        Get Started on WhatsApp
-      </a>
-      <a href="#pricing" class="border border-cyan-500 px-6 py-3 rounded-xl">
-        Explore Pricing
-      </a>
-    </div>
-  </div>
-</section>
+    <!-- Hero Section -->
+    <section id="hero" class="min-h-screen relative flex items-center pt-20">
+        <img src="banner.png" alt="Hero Background" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/80 to-black"></div>
+        
+        <div class="tail-container px-6 relative z-10">
+            <div class="max-w-4xl">
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight mb-6">
+                    Elevate Your Business with<br>
+                    <span class="text-cyan-400">Strategic Digital Marketing</span>
+                </h1>
+                <p class="text-xl text-gray-300 mb-8 max-w-2xl">
+                    Turn your vision into measurable growth with expert digital strategies.
+                </p>
+                <p class="text-lg text-gray-400 mb-10">
+                    Proven Growth for Pakistani Businesses
+                </p>
+                
+                <div class="flex flex-wrap items-center gap-8 mb-12">
+                    <div class="text-center">
+                        <div id="leads-counter" class="counter text-6xl font-bold text-cyan-400">0</div>
+                        <div class="text-sm uppercase tracking-widest text-gray-400 mt-1">Leads Generated</div>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button onclick="openWhatsApp('Hero CTA')" 
+                            class="bg-cyan-400 hover:bg-cyan-300 transition-colors text-black font-semibold px-10 py-4 rounded-full text-lg flex items-center justify-center gap-3">
+                        Get Started on WhatsApp
+                        <i class="fa-brands fa-whatsapp text-xl"></i>
+                    </button>
+                    <a href="#pricing" 
+                       class="border border-white/30 hover:border-cyan-400 transition-colors font-medium px-10 py-4 rounded-full text-lg text-center">
+                        Explore Pricing
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-cyan-400 animate-bounce">
+            <i class="fa-solid fa-chevron-down text-3xl"></i>
+        </div>
+    </section>
 
-<!-- SERVICES -->
-<section id="services" class="py-20 px-6 max-w-6xl mx-auto">
-  <h2 class="text-3xl font-bold text-center mb-10">All Digital Marketing Services Available</h2>
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-black">
+        <div class="tail-container px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-3">All Digital Marketing Services Available</h2>
+                <p class="text-gray-400 max-w-md mx-auto">Complete solutions to grow your business online</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <div class="bg-zinc-900/50 rounded-2xl p-6 hover:bg-zinc-900 transition-all group">
+                    <img src="SMM.png" alt="Social Media Management" class="w-full h-40 object-cover rounded-xl mb-6">
+                    <h3 class="font-semibold text-xl mb-2">Social Media Management</h3>
+                    <p class="text-gray-400 text-sm">Professional management across multiple platforms</p>
+                </div>
+                
+                <div class="bg-zinc-900/50 rounded-2xl p-6 hover:bg-zinc-900 transition-all group">
+                    <img src="seo.png" alt="SEO Optimization" class="w-full h-40 object-cover rounded-xl mb-6">
+                    <h3 class="font-semibold text-xl mb-2">SEO Optimization</h3>
+                    <p class="text-gray-400 text-sm">Rank higher on Google and drive organic traffic</p>
+                </div>
+                
+                <div class="bg-zinc-900/50 rounded-2xl p-6 hover:bg-zinc-900 transition-all group">
+                    <img src="html.png" alt="Website Development & Coding" class="w-full h-40 object-cover rounded-xl mb-6">
+                    <h3 class="font-semibold text-xl mb-2">Website Development & Coding</h3>
+                    <p class="text-gray-400 text-sm">Custom websites that convert visitors into customers</p>
+                </div>
+                
+                <div class="bg-zinc-900/50 rounded-2xl p-6 hover:bg-zinc-900 transition-all group">
+                    <img src="fbig.png" alt="Facebook & Instagram Ads" class="w-full h-40 object-cover rounded-xl mb-6">
+                    <h3 class="font-semibold text-xl mb-2">Facebook & Instagram Ads</h3>
+                    <p class="text-gray-400 text-sm">Targeted paid advertising campaigns</p>
+                </div>
+                
+                <div class="bg-zinc-900/50 rounded-2xl p-6 hover:bg-zinc-900 transition-all group">
+                    <img src="Shopify.png" alt="Shopify & E-commerce" class="w-full h-40 object-cover rounded-xl mb-6">
+                    <h3 class="font-semibold text-xl mb-2">Shopify & E-commerce</h3>
+                    <p class="text-gray-400 text-sm">Build and scale your online store</p>
+                </div>
+                
+                <div class="bg-zinc-900/50 rounded-2xl p-6 hover:bg-zinc-900 transition-all group">
+                    <img src="WordPress.png" alt="WordPress Development" class="w-full h-40 object-cover rounded-xl mb-6">
+                    <h3 class="font-semibold text-xl mb-2">WordPress Development</h3>
+                    <p class="text-gray-400 text-sm">Powerful and flexible websites</p>
+                </div>
+                
+                <div class="bg-zinc-900/50 rounded-2xl p-6 hover:bg-zinc-900 transition-all group">
+                    <img src="autmation.png" alt="YouTube Automation" class="w-full h-40 object-cover rounded-xl mb-6">
+                    <h3 class="font-semibold text-xl mb-2">YouTube Automation</h3>
+                    <p class="text-gray-400 text-sm">Automated content strategy and growth</p>
+                </div>
+                
+                <div class="bg-zinc-900/50 rounded-2xl p-6 hover:bg-zinc-900 transition-all group">
+                    <img src="allservice.png" alt="All Services Available" class="w-full h-40 object-cover rounded-xl mb-6">
+                    <h3 class="font-semibold text-xl mb-2">All Services Available</h3>
+                    <p class="text-gray-400 text-sm">End-to-end digital marketing solutions</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-    <img src="SMM.png" class="rounded-xl"/>
-    <img src="seo.png" class="rounded-xl"/>
-    <img src="html.png" class="rounded-xl"/>
-    <img src="fbig.png" class="rounded-xl"/>
-    <img src="Shopify.png" class="rounded-xl"/>
-    <img src="WordPress.png" class="rounded-xl"/>
-    <img src="autmation.png" class="rounded-xl"/>
-    <img src="allservice.png" class="rounded-xl"/>
-  </div>
-</section>
+    <!-- Live Results Section -->
+    <section id="results" class="py-24 bg-zinc-950">
+        <div class="tail-container px-6">
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Real Results – Facebook Ads Campaign</h2>
+                <p class="text-gray-400">Watch how we deliver measurable growth for our clients</p>
+            </div>
+            
+            <div class="video-container max-w-4xl mx-auto">
+                <video id="fb-video" class="w-full rounded-3xl shadow-2xl" controls muted loop poster="thumbnail.png">
+                    <source src="fbads.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            
+            <div class="text-center mt-12">
+                <div class="inline-flex items-center gap-3 bg-zinc-900 rounded-full px-8 py-4">
+                    <span class="text-5xl font-bold text-cyan-400">999+</span>
+                    <span class="text-lg text-gray-300">Leads Generated</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- RESULTS -->
-<section class="py-20 px-6 text-center">
-  <h2 class="text-3xl font-bold mb-6">Real Results – Facebook Ads Campaign</h2>
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-24 bg-black">
+        <div class="tail-container px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-3">Choose Your Growth Package</h2>
+                <p class="text-gray-400">Transparent pricing. Real results.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Starter -->
+                <div class="pricing-card bg-zinc-900 rounded-3xl p-8 border border-white/10">
+                    <h3 class="text-2xl font-semibold mb-2">Starter</h3>
+                    <div class="text-5xl font-bold mb-1">Rs. 10,000</div>
+                    <p class="text-sm text-gray-400 mb-8">/month</p>
+                    
+                    <p class="text-gray-300 mb-8">Perfect for small businesses just getting started online.</p>
+                    
+                    <ul class="space-y-4 mb-10">
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-cyan-400 mt-1"></i> Social Media Setup (2 platforms)</li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-cyan-400 mt-1"></i> 12 posts per month</li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-cyan-400 mt-1"></i> Basic graphic design</li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-cyan-400 mt-1"></i> Monthly report</li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-cyan-400 mt-1"></i> WhatsApp support</li>
+                        <li class="flex items-start gap-3 line-through text-gray-500"><i class="fa-solid fa-xmark"></i> Website design</li>
+                        <li class="flex items-start gap-3 line-through text-gray-500"><i class="fa-solid fa-xmark"></i> Paid ads management</li>
+                        <li class="flex items-start gap-3 line-through text-gray-500"><i class="fa-solid fa-xmark"></i> SEO optimization</li>
+                    </ul>
+                    
+                    <button onclick="openWhatsApp('Starter Package')" 
+                            class="w-full py-4 bg-white text-black font-semibold rounded-2xl hover:bg-gray-200 transition-colors">
+                        Get Started
+                    </button>
+                </div>
+                
+                <!-- Growth -->
+                <div class="pricing-card bg-zinc-900 rounded-3xl p-8 border-2 border-cyan-400 relative">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-cyan-400 text-black text-xs font-bold px-6 py-1 rounded-full">
+                        MOST POPULAR
+                    </div>
+                    
+                    <h3 class="text-2xl font-semibold mb-2">Growth</h3>
+                    <div class="text-5xl font-bold mb-1">Rs. 20,000</div>
+                    <p class="text-sm text-gray-400 mb-8">/month</p>
+                    
+                    <p class="text-gray-300 mb-8">Best for growing businesses ready to scale their online presence.</p>
+                    
+                    <ul class="space-y-4 mb-10">
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-cyan-400 mt-1"></i> Social Media (3 platforms)</li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-cyan-400 mt-1"></i> 20 posts per month</li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-cyan-400 mt-1"></i> Professional graphic design</li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-cyan-400 mt-1"></i> 1 landing page / website</li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-cyan-400 mt-1"></i> Basic SEO setup</li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-cyan-400 mt-1"></i> Facebook & Instagram Ads</li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-cyan-400 mt-1"></i> Bi-weekly reports</li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-cyan-400 mt-1"></i> Priority WhatsApp support</li>
+                    </ul>
+                    
+                    <button onclick="openWhatsApp('Growth Package')" 
+                            class="w-full py-4 bg-cyan-400 text-black font-semibold rounded-2xl hover:bg-cyan-300 transition-colors">
+                        Get Started
+                    </button>
+                </div>
+                
+                <!-- Premium -->
+                <div class="pricing-card bg-zinc-900 rounded-3xl p-8 border border-white/10">
+                    <h3 class="text-2xl font-semibold mb-2">Premium</h3>
+                    <div class="text-5xl font-bold mb-1">Rs. 35,000</div>
+                    <p class="text-sm text-gray-400 mb-8">/month</p>
+                    
+                    <p class="text-gray-300 mb-8">Full-service solution for established businesses wanting maximum results.</p>
+                    
+                    <ul class="space-y-4 mb-10">
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-cyan-400 mt-1"></i> All 5 platforms managed</li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-cyan-400 mt-1"></i> 30+ posts per month</li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-cyan-400 mt-1"></i> Premium design + video editing</li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-cyan-400 mt-1"></i> Full website + eCommerce</li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-cyan-400 mt-1"></i> Advanced SEO campaign</li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-cyan-400 mt-1"></i> Google + FB + TikTok Ads</li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-cyan-400 mt-1"></i> Weekly reports + strategy calls</li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-cyan-400 mt-1"></i> Dedicated account manager</li>
+                    </ul>
+                    
+                    <button onclick="openWhatsApp('Premium Package')" 
+                            class="w-full py-4 bg-white text-black font-semibold rounded-2xl hover:bg-gray-200 transition-colors">
+                        Get Started
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <video class="mx-auto rounded-xl w-full max-w-3xl" autoplay muted loop controls poster="thumbnail.png">
-    <source src="fbads.mp4" type="video/mp4">
-  </video>
-</section>
-
-<!-- PRICING -->
-<section id="pricing" class="py-20 px-6 max-w-6xl mx-auto">
-  <h2 class="text-3xl font-bold text-center mb-10">Pricing Plans</h2>
-
-  <div class="grid md:grid-cols-3 gap-6">
-
-    <!-- Starter -->
-    <div class="border border-cyan-500 p-6 rounded-xl">
-      <h3 class="text-xl font-bold">Starter</h3>
-      <p class="text-cyan-300">Rs. 10,000</p>
-      <p class="text-sm mt-2">Perfect for small businesses just getting started online.</p>
-      <ul class="text-sm mt-3 space-y-1">
-        <li>✔ Social Media Setup (2 platforms)</li>
-        <li>✔ 12 posts per month</li>
-        <li>✔ Basic graphic design</li>
-        <li>✔ Monthly report</li>
-        <li>✔ WhatsApp support</li>
-      </ul>
-      <button onclick="wa('Starter')"
-        class="mt-4 w-full bg-cyan-500 text-black py-2 rounded-lg">
-        Get Started
-      </button>
-    </div>
-
-    <!-- Growth -->
-    <div class="border border-cyan-500 p-6 rounded-xl relative">
-      <div class="absolute top-2 right-2 bg-cyan-500 text-black text-xs px-2 py-1 rounded-full">
-        MOST POPULAR
-      </div>
-      <h3 class="text-xl font-bold">Growth</h3>
-      <p class="text-cyan-300">Rs. 20,000</p>
-      <p class="text-sm mt-2">Best for growing businesses ready to scale their online presence.</p>
-      <ul class="text-sm mt-3 space-y-1">
-        <li>✔ Social Media (3 platforms)</li>
-        <li>✔ 20 posts per month</li>
-        <li>✔ Professional graphic design</li>
-        <li>✔ 1 landing page / website</li>
-        <li>✔ Basic SEO setup</li>
-        <li>✔ Facebook & Instagram Ads</li>
-        <li>✔ Bi-weekly reports</li>
-        <li>✔ Priority WhatsApp support</li>
-      </ul>
-      <button onclick="wa('Growth')"
-        class="mt-4 w-full bg-cyan-500 text-black py-2 rounded-lg">
-        Get Started
-      </button>
-    </div>
-
-    <!-- Premium -->
-    <div class="border border-cyan-500 p-6 rounded-xl">
-      <h3 class="text-xl font-bold">Premium</h3>
-      <p class="text-cyan-300">Rs. 35,000</p>
-      <p class="text-sm mt-2">Full-service solution for maximum results.</p>
-      <ul class="text-sm mt-3 space-y-1">
-        <li>✔ All 5 platforms managed</li>
-        <li>✔ 30+ posts per month</li>
-        <li>✔ Premium design + video editing</li>
-        <li>✔ Full website + eCommerce</li>
-        <li>✔ Advanced SEO campaign</li>
-        <li>✔ Google + FB + TikTok Ads</li>
-        <li>✔ Weekly reports + strategy calls</li>
-        <li>✔ Dedicated account manager</li>
-      </ul>
-      <button onclick="wa('Premium')"
-        class="mt-4 w-full bg-cyan-500 text-black py-2 rounded-lg">
-        Get Started
-      </button>
-    </div>
-
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="py-20 px-6 max-w-6xl mx-auto">
-  <h2 class="text-3xl font-bold text-center mb-10">What Clients Say</h2>
-
-  <div class="grid md:grid-cols-3 gap-6 text-sm">
-    <div class="border p-4 rounded-xl">“Excellent results in just 2 weeks!”</div>
-    <div class="border p-4 rounded-xl">“Professional team and great communication.”</div>
-    <div class="border p-4 rounded-xl">“Helped us scale our online store fast.”</div>
-    <div class="border p-4 rounded-xl">“Best marketing agency in Pakistan.”</div>
-    <div class="border p-4 rounded-xl">“Boot Bazar review exactly”</div>
-    <div class="border p-4 rounded-xl">“Highly recommended for ads management.”</div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="py-20 px-6 max-w-4xl mx-auto text-center">
-  <h2 class="text-3xl font-bold mb-6">Contact Us</h2>
-
-  <p class="mb-2">📞 03030607545</p>
-  <p class="mb-6">📧 usamadigital0@gmail.com</p>
-
-  <video class="mx-auto rounded-xl mb-6" autoplay muted loop>
-    <source src="map.mp4" type="video/mp4">
-  </video>
-
-  <form class="grid gap-4">
-    <input class="p-3 rounded bg-black border border-cyan-500" placeholder="Your Name"/>
-    <input class="p-3 rounded bg-black border border-cyan-500" placeholder="Email"/>
-    <textarea class="p-3 rounded bg-black border border-cyan-500" placeholder="Message"></textarea>
-    <button class="bg-cyan-500 text-black py-3 rounded-xl">Send Message</button>
-  </form>
-</section>
-
-<!-- SOCIAL -->
-<div class="text-center py-10 space-x-6">
-  <a href="https://www.tiktok.com/@usama.digital1">TikTok</a>
-  <a href="https://www.facebook.com/share/1arnvG7nvf/">Facebook</a>
-  <a href="https://www.instagram.com/usama.digital">Instagram</a>
-</div>
-
-<!-- WHATSAPP FLOAT -->
-<a href="https://wa.me/923030607545"
-   class="fixed bottom-6 right-6 bg-cyan-500 text-black px-4 py-3 rounded-full shadow-lg animate-pulse">
-  WhatsApp
-</a>
-
-<!-- FOOTER -->
-<footer class="text-center py-6 border-t border-gray-800">
-  <p>© 2026 Usama Digital. All Rights Reserved.</p>
-</footer>
-
-<!-- JS -->
-<script>
-  // OFFER TIMER
-  let seconds = 24 * 60 * 60;
-
-  function updateTimer() {
-    let h = String(Math.floor(seconds / 3600)).padStart(2,'0');
-    let m = String(Math.floor((seconds % 3600)/60)).padStart(2,'0');
-    let s = String(seconds % 60).padStart(2,'0');
-
-    const timer = document.getElementById("timer");
-    timer.innerText = `${h}:${m}:${s}`;
-
-    if(seconds <= 0){
-      seconds = 24 * 60 * 60;
-      timer.classList.add("glow");
-      setTimeout(()=>timer.classList.remove("glow"),1000);
-    } else {
-      seconds--;
-    }
-  }
-  setInterval(updateTimer,1000);
-
-  // COUNTER
-  let count = 0;
-  let counterEl = document.getElementById("counter");
-  let interval = setInterval(()=>{
-    count++;
-    counterEl.innerText = count;
-    if(count >= 999){
-      counterEl.innerText = "999+";
-      clearInterval(interval);
-    }
-  }, 5);
-
-  // NAVBAR SCROLL HIDE/SHOW
-  let lastScroll = 0;
-  const navbar = document.getElementById("navbar");
-
-  window.addEventListener("scroll", () => {
-    let current = window.pageYOffset;
-    if(current > lastScroll){
-      navbar.style.transform = "translateY(-120%)";
-    } else {
-      navbar.style.transform = "translateY(0)";
-    }
-    lastScroll = current;
-  });
-
-  function toggleMenu(){
-    document.getElementById("menu").classList.toggle("hidden");
-  }
-
-  function wa(plan){
-    window.open(`https://wa.me/923030607545?text=Hi%20Usama%20Digital%2C%20I%20am%20interested%20in%20${plan}%20Package`);
-  }
-</script>
-
-</body>
-    </html>
+    <!-- Testim
